@@ -1,0 +1,30 @@
+# OS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+venv/
+.venv/
+
+# Output files (extractor results — re-runnable, contain internal financials)
+custos_cloud.csv
+custos_cloud_*.csv
+tag_audit*.csv
+entregas*.csv
+project_audit*.csv
+*.csv.bak
+
+# Credentials / secrets (should never be committed)
+.env
+*.pem
+*.key
+credentials.json
+application_default_credentials.json
+
+# IDE
+.idea/
+.vscode/
+*.swp
