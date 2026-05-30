@@ -1,0 +1,74 @@
+# Manual cost manifest — template.
+#
+# Copy this file to manual-invoices/<YYYY-MM>/manifest.yaml and fill in the
+# entries for the month. Each entry becomes one row in relatorio_pt.custos.
+#
+# Required fields per entry: categoria, produto, item, valor_brl, fonte.
+# Optional: cloud_provedor (only for Cloud rows, e.g. Azure not covered by AWS/GCP extractors).
+#
+# Known categorias: Time, Cloud, Ferramentas, Parceiros/Operação, Fornecedor de Produto
+# Known produtos:   Faceum, Mydhas, AI, Integração, Compartilhado, Saturno
+#
+# `fonte` is the idempotency key per-source. Use one fonte per supplier/payroll
+# bucket. Re-running ingest_manual.py with the manifest edited only replaces
+# rows for fontes IN the manifest — other fontes (AWS, GCP, other manual
+# sources) are untouched. Suggested fonte naming: `manual-<supplier-slug>`.
+#
+# PDFs/spreadsheets that back each entry live in the SAME folder as audit
+# evidence; this script does NOT parse them — the YAML is authoritative.
+
+- categoria: Fornecedor de Produto
+  produto: Faceum
+  item: "Gryfo — reconhecimento facial (fatura abril, regime de competência maio)"
+  valor_brl: 0.00          # FILL IN
+  fonte: manual-gryfo
+
+- categoria: Parceiros/Operação
+  produto: Saturno
+  item: "Danysoft — sustentação Azure (legado Saturno)"
+  valor_brl: 0.00
+  fonte: manual-danysoft
+
+- categoria: Parceiros/Operação
+  produto: Compartilhado
+  item: "Beonup — sustentação AWS"
+  valor_brl: 0.00
+  fonte: manual-beonup
+
+- categoria: Time
+  produto: Compartilhado
+  item: "Folha CLT (com fator de encargo 1.70)"
+  valor_brl: 0.00
+  fonte: manual-folha-clt
+
+- categoria: Time
+  produto: Compartilhado
+  item: "Folha PJ (sem encargo)"
+  valor_brl: 0.00
+  fonte: manual-folha-pj
+
+- categoria: Time
+  produto: Compartilhado
+  item: "Estágio"
+  valor_brl: 0.00
+  fonte: manual-folha-estagio
+
+- categoria: Ferramentas
+  produto: Compartilhado
+  item: "Atlassian Cloud (Jira + Confluence)"
+  valor_brl: 0.00
+  fonte: manual-atlassian
+
+- categoria: Ferramentas
+  produto: Compartilhado
+  item: "Excalidraw Plus"
+  valor_brl: 0.00
+  fonte: manual-excalidraw
+
+# Example of a Cloud row that's NOT covered by aws/gcp extractors (Azure for Saturno legacy):
+- categoria: Cloud
+  produto: Saturno
+  cloud_provedor: Azure
+  item: "Azure — Saturno (legado)"
+  valor_brl: 0.00
+  fonte: manual-azure-saturno

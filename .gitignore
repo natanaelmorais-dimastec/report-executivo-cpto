@@ -17,6 +17,9 @@ entregas*.csv
 project_audit*.csv
 *.csv.bak
 
+# Manual invoice inputs (PDFs, spreadsheets, and per-month manifests with real R$ values)
+manual-invoices/
+
 # Credentials / secrets (should never be committed)
 .env
 *.pem
