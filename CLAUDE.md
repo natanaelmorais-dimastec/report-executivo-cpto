@@ -47,9 +47,14 @@ Faceum, Mydhas, AI, Integração, Compartilhado, Saturno (legado).
 Danysoft R$ 12,7k) = ~10% do custo total de tecnologia. A migração Saturno→Faceum/Mydhas
 elimina esse custo. Conectar custo do legado com entregas de migração é o argumento de ROI.
 
-**Custo total de referência (maio/2026):** R$ 351.370,78 parcial, 11 fontes carregadas
-(falta Copilot, MongoDB Atlas, SendGrid — extractors aguardando credenciais — e O365).
-Câmbio usado: USD/BRL = 5,04.
+**Custo total de referência (maio/2026):** **R$ 387.570,74** — 14 fontes carregadas
+(aws, gcp, manual-folha-clt/pj/estagio, manual-gryfo, manual-azure-saturno,
+manual-danysoft, manual-beonup, manual-atlassian, manual-excalidraw,
+manual-sendgrid, manual-github-copilot, mongodb-atlas). Inclui encargo CLT 1,70
+e Estágio 1,05 aplicados no ingest. Pendência única: **O365** (billing via
+Ingram CSP). Câmbio usado: USD/BRL = 5,04. BQ é a **fonte da verdade** —
+divergências com o Looker (R$ 365.187,62) refletem dados desatualizados ou
+omissões na planilha do Looker, não no BQ.
 
 **Regime contábil do relatório:** **CASH BASIS** (regime de caixa). `competencia=YYYY-MM`
 é o mês em que a fatura foi **paga**, não o mês de uso. Para a maioria das fontes
