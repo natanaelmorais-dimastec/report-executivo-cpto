@@ -52,9 +52,14 @@ log = logging.getLogger("gcp_project_audit")
 
 
 def month_to_invoice(month: str) -> str:
-    """Convert 'YYYY-MM' (report format) to 'YYYYMM' (GCP invoice.month format)."""
+    """Map report competencia ('YYYY-MM') to the GCP invoice.month paid in that
+    competencia (previous calendar month). Mirrors extractor.py — the report is
+    cash-basis, so competencia=2026-05 audits invoice.month=202604."""
     year, mon = month.split("-")
-    return f"{year}{mon}"
+    y, m = int(year), int(mon)
+    if m == 1:
+        return f"{y - 1}12"
+    return f"{y}{m - 1:02d}"
 
 
 def normalize_product(raw: str) -> str | None:

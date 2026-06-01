@@ -214,10 +214,20 @@ def main() -> int:
         log.error("Failed to list invoices: %s", exc)
         return 1
 
-    invoice = pick_invoice_for_month(invoices, args.month)
+    # Cash-basis convention (mirrors AWS/GCP): competencia=YYYY-MM is what was
+    # paid in that month, i.e. the previous calendar month's Atlas invoice.
+    year_i, mon_i = (int(p) for p in args.month.split("-"))
+    if mon_i == 1:
+        usage_month = f"{year_i - 1}-12"
+    else:
+        usage_month = f"{year_i}-{mon_i - 1:02d}"
+    log.info("Report month=%s -> picking Atlas invoice with startDate in %s.",
+             args.month, usage_month)
+
+    invoice = pick_invoice_for_month(invoices, usage_month)
     if not invoice:
         log.warning("No invoice with startDate in %s. Invoices visible: %s",
-                    args.month,
+                    usage_month,
                     sorted({(i.get('startDate') or '')[:7] for i in invoices}, reverse=True)[:6])
         return 0
 

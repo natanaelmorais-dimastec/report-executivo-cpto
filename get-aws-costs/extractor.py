@@ -86,6 +86,14 @@ def month_to_period(month: str) -> tuple[str, str]:
     return start.isoformat(), end.isoformat()
 
 
+def prev_month(month: str) -> str:
+    """Return the previous 'YYYY-MM' (e.g. '2026-05' -> '2026-04', '2026-01' -> '2025-12')."""
+    year, mon = (int(p) for p in month.split("-"))
+    if mon == 1:
+        return f"{year - 1}-12"
+    return f"{year}-{mon - 1:02d}"
+
+
 def resolve_environment(account_id: str) -> str:
     if account_id not in ACCOUNTS:
         log.warning("Unmapped account id '%s' -- add it to ACCOUNTS.", account_id)
@@ -252,8 +260,11 @@ def main() -> int:
     parser.add_argument("--bq-dataset", default="relatorio_pt", help="BigQuery dataset")
     args = parser.parse_args()
 
-    start, _ = month_to_period(args.month)
-    _, end = month_to_period(args.month)
+    # Cash-basis convention (mirrors get-gcp-costs): competencia=YYYY-MM is the
+    # AWS bill paid in that month, which covers the PREVIOUS month's usage.
+    usage_month = prev_month(args.month)
+    start, end = month_to_period(usage_month)
+    log.info("Report month=%s -> querying AWS usage period %s to %s.", args.month, start, end)
 
     audit_paths = {}
     if args.audit_sa:
@@ -272,6 +283,10 @@ def main() -> int:
     except Exception as exc:
         log.error("Failed to fetch cost data: %s", exc)
         return 1
+
+    # Label rows with the REPORT month (not the usage month they came from).
+    for r in raw_rows:
+        r["competencia"] = args.month
 
     attributed = attribute(raw_rows, weights)
     attributed = convert_currency(attributed, args.usd_brl_rate)

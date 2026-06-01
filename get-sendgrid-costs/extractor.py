@@ -147,7 +147,16 @@ def main() -> int:
         log.error("Missing credentials. Set TWILIO_ACCOUNT_SID and TWILIO_AUTH_TOKEN in .env.")
         return 1
 
-    start, end = month_bounds(args.month)
+    # Cash-basis convention (mirrors AWS/GCP): competencia=YYYY-MM is what was
+    # paid in that month, i.e. the previous calendar month's Twilio/SendGrid usage.
+    year_i, mon_i = (int(p) for p in args.month.split("-"))
+    if mon_i == 1:
+        usage_month = f"{year_i - 1}-12"
+    else:
+        usage_month = f"{year_i}-{mon_i - 1:02d}"
+    log.info("Report month=%s -> querying Twilio usage for %s.", args.month, usage_month)
+
+    start, end = month_bounds(usage_month)
     try:
         records = fetch_monthly_records(sid, token, start, end)
     except Exception as exc:

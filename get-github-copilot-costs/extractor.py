@@ -141,8 +141,14 @@ def main() -> int:
         log.error("Invalid --month '%s', expected YYYY-MM.", args.month)
         return 1
 
+    # Cash-basis convention (mirrors AWS/GCP): competencia=YYYY-MM is what was
+    # paid in that month, i.e. the previous calendar month's usage.
+    usage_year, usage_mon = (year_i - 1, 12) if mon_i == 1 else (year_i, mon_i - 1)
+    log.info("Report month=%s -> querying Copilot usage for %04d-%02d.",
+             args.month, usage_year, usage_mon)
+
     try:
-        items = fetch_usage(org, token, year_i, mon_i)
+        items = fetch_usage(org, token, usage_year, usage_mon)
     except Exception as exc:
         log.error("Failed to fetch usage: %s", exc)
         return 1

@@ -44,7 +44,16 @@ Faceum, Mydhas, AI, Integração, Compartilhado, Saturno (legado).
 Danysoft R$ 12,7k) = ~10% do custo total de tecnologia. A migração Saturno→Faceum/Mydhas
 elimina esse custo. Conectar custo do legado com entregas de migração é o argumento de ROI.
 
-**Custo total de referência (maio/2026):** R$ 365.187,62. Câmbio usado: USD/BRL = 5,04.
+**Custo total de referência (maio/2026):** R$ 351.370,78 parcial, 11 fontes carregadas
+(falta Copilot, MongoDB Atlas, SendGrid — extractors aguardando credenciais — e O365).
+Câmbio usado: USD/BRL = 5,04.
+
+**Regime contábil do relatório:** **CASH BASIS** (regime de caixa). `competencia=YYYY-MM`
+é o mês em que a fatura foi **paga**, não o mês de uso. Para a maioria das fontes
+(cloud, fornecedores, folha) isso corresponde ao **mês anterior de uso/trabalho**.
+Para assinaturas pré-pagas (Atlassian, Excalidraw), uso e pagamento caem no mesmo mês.
+O usuário reconcilia o relatório contra invoices, não contra consumo — por isso a
+escolha. Ver memória `report-cash-basis-convention.md`.
 
 ---
 
@@ -52,26 +61,24 @@ elimina esse custo. Conectar custo do legado com entregas de migração é o arg
 
 ```
 .
-├── aws-cost-extractor/
-│   ├── extractor.py          # custo AWS via Cost Explorer, atribui produto por tag/nome
-│   ├── tag_audit.py          # auditoria read-only de tags (gera os CSVs de peso)
-│   ├── bq_loader.py          # módulo compartilhado de carga BigQuery (cópia)
-│   ├── iam-policy-*.json      # policies mínimas de leitura (Cost Explorer, tags)
-│   └── *.md                   # IAM_SETUP, TAGGING_* (guias)
-├── jira-deliveries-extractor/
-│   ├── jira_extractor.py     # entregas do Jira, agrupadas por épico, mapeadas a produto
-│   └── bq_loader.py          # cópia do módulo de carga
-├── etl-bigquery/
-│   ├── schema.sql            # DDL: dataset relatorio_pt, tabelas, views
-│   ├── bq_loader.py          # ORIGINAL do módulo de carga
-│   ├── SETUP_BIGQUERY.md     # passo a passo de setup do zero
-│   └── README.md
-└── CLAUDE.md                 # este arquivo
+├── get-aws-costs/                  # AWS Cost Explorer + cascade de produto por tag/nome
+├── get-gcp-costs/                  # GCP Cloud Billing BigQuery Export + cascade por label
+├── get-github-copilot-costs/       # GitHub Enhanced Billing usage (Ferramentas, Compartilhado)
+├── get-mongodb-atlas-costs/        # Atlas Billing API por invoice mensal (Ferramentas)
+├── get-sendgrid-costs/             # Twilio Usage Records → SendGrid email (Ferramentas)
+├── jira-deliveries-extractor/      # entregas do Jira, agrupadas por épico → produto
+├── ingest-manual-costs/            # ingestor YAML para fontes sem API (Gryfo, Danysoft,
+│                                   # Beonup, folha CLT/PJ/Estágio, Atlassian, Excalidraw,
+│                                   # Azure Saturno)
+├── setup-bigquery/                 # DDL (schema.sql), bq_loader.py ORIGINAL, setup doc
+├── manual-invoices/                # GITIGNORED — manifests YAML por mês + PDFs evidência
+│   └── 2026-05/manifest.yaml
+└── CLAUDE.md
 ```
 
-> `bq_loader.py` é mantido em `etl-bigquery/` como original e COPIADO para a pasta de
-> cada extractor (eles fazem `from bq_loader import BigQueryLoader`). Ao alterá-lo,
-> atualize as três cópias ou centralize via PYTHONPATH.
+> `bq_loader.py` é mantido em `setup-bigquery/` como original e COPIADO para a pasta de
+> cada extractor/ingestor (eles fazem `from bq_loader import BigQueryLoader`). Ao alterá-lo,
+> atualize todas as cópias ou centralize via PYTHONPATH.
 
 ---
 
@@ -100,23 +107,42 @@ JIRA_EMAIL=voce@dimastec.com.br
 JIRA_API_TOKEN=...        # id.atlassian.com -> API tokens
 ```
 
-### AWS (credenciais via perfil/role; usuário IAM DimastecCostExplorerReadOnly)
+### AWS (perfil `dimastec-mgmt`, IAM `DimastecCostExplorerReadOnly`)
 ```bash
-python extractor.py --month 2026-05 --usd-brl-rate 5.04 \
+cd get-aws-costs && python3 extractor.py --month 2026-05 --usd-brl-rate 5.04 \
+    --profile dimastec-mgmt \
     --audit-sa tag_audit.csv --audit-ue tag_audit_useast.csv \
+    --bq-project executive-reports-cpto
+```
+
+### GCP (via Cloud Billing BigQuery Export)
+```bash
+python3 get-gcp-costs/extractor.py --month 2026-05 --usd-brl-rate 5.04 \
+    --billing-export-table executive-reports-cpto.billing_export.gcp_billing_export_v1_01ED44_5AEFA1_EE5D4B \
+    --audit get-gcp-costs/project_audit.csv \
     --bq-project executive-reports-cpto
 ```
 
 ### Jira
 ```bash
-python jira_extractor.py --month 2026-05 --bq-project executive-reports-cpto
+python3 jira-deliveries-extractor/jira_extractor.py --month 2026-05 \
+    --bq-project executive-reports-cpto
 ```
 
-> Sem `--bq-project`, os scripts só geram CSV (modo legado, sem risco).
-> Com `--bq-project`, geram CSV **e** carregam no BigQuery.
+### Manuais (YAML)
+```bash
+# Copie o template; edite valor_brl em manual-invoices/<mês>/manifest.yaml
+cp ingest-manual-costs/manifest.yaml.example manual-invoices/2026-05/manifest.yaml
+python3 ingest-manual-costs/ingest_manual.py --month 2026-05 --dry-run        # valida
+python3 ingest-manual-costs/ingest_manual.py --month 2026-05 \
+    --bq-project executive-reports-cpto                                       # carrega
+```
+
+> Sem `--bq-project`, os scripts só geram CSV / validam (modo seguro). Com `--bq-project`,
+> também carregam no BigQuery (`replace_month` por fonte — idempotente).
 
 ### Criar/atualizar o schema BigQuery
-Rode `etl-bigquery/schema.sql` no console BigQuery (ou `bq query --use_legacy_sql=false < schema.sql`).
+Rode `setup-bigquery/schema.sql` no console BigQuery (ou `bq query --use_legacy_sql=false < schema.sql`).
 
 ---
 
@@ -135,6 +161,10 @@ Estas regras valem para qualquer código gerado ou alterado aqui:
 6. **Saída CSV preservada:** o BigQuery é saída adicional, não substitui o CSV.
 7. **Nunca exponha credenciais** em código, logs ou `ps aux` (ex.: não passe secrets via
    flags `-D` da JVM; use env vars ou Secret Manager). Tokens em `.env` fora do git.
+8. **Cash basis em TODAS as fontes.** Qualquer extractor novo precisa shiftar a query para
+   o mês anterior e rotular a competência com o mês do relatório (ver `month_to_invoice` em
+   `get-gcp-costs/extractor.py`, `prev_month` em `get-aws-costs/extractor.py`). Não misturar
+   convenções entre fontes — números do CFO batem invoice por invoice.
 
 ---
 
@@ -186,8 +216,15 @@ recurso, (3) rateio por pesos do tag audit, (4) Compartilhado. Conta de produç�
   não exige Brasil aqui; se entrar PII, criar dataset separado em São Paulo).
 - **Sem particionamento nas tabelas:** competencia é STRING e o volume é pequeno (dezenas de
   linhas/mês). Particionar deu erro e era over-engineering.
-- **Gryfo (maio) = estimativa = abril** (fatura abril paga em maio); regime de competência.
-  Substituir pela fatura real quando sair.
+- **Cash basis (regime de caixa) em todas as fontes** — decidido em 2026-06-01 após gap
+  entre GCP extractor (R$ 402) e fatura do usuário (R$ 2.220). `competencia=YYYY-MM` = R$
+  pago naquele mês = (para cloud/fornecedor/folha) uso/trabalho do mês ANTERIOR. Vale
+  uniformemente para AWS, GCP, Atlassian, Excalidraw, Gryfo, Danysoft, Beonup, folha,
+  Azure-Saturno. Reverter isso requer re-rodar todas as fontes do mês e reconciliar com
+  a planilha do CFO.
+- **Gryfo (maio) = estimativa = fatura de abril** (R$ 80.484,50), porque a fatura de maio
+  ainda não foi emitida. Substituir pelo valor real quando vier (re-roda o ingest do
+  manifest com o novo valor — idempotente).
 - **Saturno/Azure = categoria própria** "Saturno (legado)"; Danysoft (Azure) e Beonup (AWS)
   como Parceiros/Operação separados do consumo de cloud.
 - **Entregas por épico** (não por issue solta); status = nº de issues entregues; AI aparece
@@ -199,12 +236,20 @@ recurso, (3) rateio por pesos do tag audit, (4) Compartilhado. Conta de produç�
 
 ## Pendências conhecidas (não são bugs)
 
-- Fontes ainda SEM extractor (carga manual via SQL/CSV): Time, Gryfo, Azure, GCP,
-  Ferramentas, Parceiros. Criar extractors para elas é trabalho futuro.
-- O365: valor real pendente (billing via Ingram CSP, não visível no admin Microsoft).
-- Coluna `impacto` das entregas: refinar placeholders manualmente.
-- Fator de encargo CLT (1,70) é estimativa — confirmar com contabilidade.
-- Jira API: endpoint migrado para `/rest/api/3/search/jql` (o antigo foi depreciado);
+- **Extractors API com código pronto mas SEM credenciais configuradas em `.env`:**
+  GitHub Copilot (`GITHUB_TOKEN`), MongoDB Atlas (`MONGODB_ATLAS_PUBLIC_KEY` +
+  `PRIVATE_KEY` + `ORG_ID`), SendGrid (precisa `TWILIO_ACCOUNT_SID` + `TWILIO_AUTH_TOKEN`,
+  NÃO uma SendGrid API key — o cobrança vem pela API Twilio).
+- **O365:** valor real pendente (billing via Ingram CSP, não visível no admin Microsoft).
+  Entra como linha manual em `ingest-manual-costs/` quando obtido.
+- **Bug GCP billing export:** parou de receber dados em **2026-05-07** (memória
+  `gcp-billing-export-stalled.md`). Não atrapalhou maio (cash basis consulta abril), mas
+  **quebra junho** se não for resolvido — `invoice.month=202605` está incompleto. Ação:
+  console GCP > Billing > Export antes do fechamento de junho.
+- **Coluna `impacto` das entregas:** refinar placeholders manualmente após cada rodada
+  do Jira extractor.
+- **Fator de encargo CLT (1,70):** estimativa — confirmar com contabilidade.
+- **Jira API:** endpoint migrado para `/rest/api/3/search/jql` (o antigo foi depreciado);
   paginação por `nextPageToken`.
 
 ---

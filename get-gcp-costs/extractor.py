@@ -46,6 +46,8 @@ from google.cloud import bigquery
 # Seed with what we know; extend after the first project_audit.py run.
 PROJECT_PRODUCT_MAP: dict[str, str] = {
     "executive-reports-cpto": "Compartilhado",
+    "monitoratec-59fe3": "Faceum",
+    "my-project-91598-1687878101443": "Faceum",
 }
 
 PRODUCT_LABEL_KEY = "product"
@@ -69,9 +71,15 @@ log = logging.getLogger("gcp_cost_extractor")
 
 
 def month_to_invoice(month: str) -> str:
-    """Convert 'YYYY-MM' (report format) to 'YYYYMM' (GCP invoice.month format)."""
+    """Map report competencia ('YYYY-MM') to the GCP invoice.month paid in that
+    competencia, i.e. the PREVIOUS calendar month's usage. The Dimastec report is
+    cash-basis: competencia=2026-05 reflects the invoice paid in May, which covers
+    April usage (GCP invoice.month=202604)."""
     year, mon = month.split("-")
-    return f"{year}{mon}"
+    y, m = int(year), int(mon)
+    if m == 1:
+        return f"{y - 1}12"
+    return f"{y}{m - 1:02d}"
 
 
 def normalize_product(raw: str | None) -> str | None:
