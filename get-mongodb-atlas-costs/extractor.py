@@ -45,9 +45,7 @@ from requests.auth import HTTPDigestAuth
 
 # Atlas clusterName -> report product. Extend after first run logs the unmapped clusters.
 CLUSTER_PRODUCT_MAP: dict[str, str] = {
-    # "faceum-prod":   "Faceum",
-    # "mydhas-prd":    "Mydhas",
-    # "ai-sandbox":    "AI",
+    "mydhas-prod": "Mydhas",
 }
 
 # Atlas project (group) name -> product. Used as fallback when a line item has no cluster

@@ -10,8 +10,7 @@ venv/
 .venv/
 
 # Output files (extractor results — re-runnable, contain internal financials)
-custos_cloud.csv
-custos_cloud_*.csv
+custos_*.csv
 tag_audit*.csv
 entregas*.csv
 project_audit*.csv
