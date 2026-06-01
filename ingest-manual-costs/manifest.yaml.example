@@ -3,7 +3,13 @@
 # Copy this file to manual-invoices/<YYYY-MM>/manifest.yaml and fill in the
 # entries for the month. Each entry becomes one row in relatorio_pt.custos.
 #
-# Required fields per entry: categoria, produto, item, valor_brl, fonte.
+# Required fields per entry: categoria, produto, item, fonte, AND
+# EXACTLY ONE of valor_brl OR valor_usd.
+#   - Use `valor_brl` for BRL-native sources (folha, Gryfo, Beonup, Azure Saturno).
+#   - Use `valor_usd` for USD-billed sources (Atlassian, Excalidraw, Copilot, SendGrid).
+#     The ingestor reads the USD/BRL rate from `relatorio_pt.cotacoes` for the
+#     month — run `close_month.py --month <YYYY-MM> --usd-brl-rate X.XX` first
+#     (or pre-populate cotacoes manually).
 # Optional: cloud_provedor (only for Cloud rows, e.g. Azure not covered by AWS/GCP extractors).
 #
 # Known categorias: Time, Cloud, Ferramentas, Parceiros/Operação, Fornecedor de Produto
@@ -13,6 +19,10 @@
 # bucket. Re-running ingest_manual.py with the manifest edited only replaces
 # rows for fontes IN the manifest — other fontes (AWS, GCP, other manual
 # sources) are untouched. Suggested fonte naming: `manual-<supplier-slug>`.
+#
+# Folha (CLT / Estágio): use the BASE salary in `valor_brl`. The ingestor
+# applies the encargo factor automatically (CLT × 1.70, Estágio × 1.05) via
+# the ENCARGO_BY_FONTE constant in ingest_manual.py.
 #
 # PDFs/spreadsheets that back each entry live in the SAME folder as audit
 # evidence; this script does NOT parse them — the YAML is authoritative.
@@ -56,13 +66,13 @@
 - categoria: Ferramentas
   produto: Compartilhado
   item: "Atlassian Cloud (Jira + Confluence)"
-  valor_brl: 0.00
+  valor_usd: 0.00          # FILL IN — USD billing; ingest converts via cotacoes
   fonte: manual-atlassian
 
 - categoria: Ferramentas
   produto: Compartilhado
   item: "Excalidraw Plus"
-  valor_brl: 0.00
+  valor_usd: 0.00          # FILL IN — USD billing
   fonte: manual-excalidraw
 
 # Example of a Cloud row that's NOT covered by aws/gcp extractors (Azure for Saturno legacy):

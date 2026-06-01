@@ -159,6 +159,32 @@ STEPS: list[dict] = [
 ]
 
 
+def upsert_cotacao(month: str, rate: str, fonte_label: str = "CLI") -> None:
+    """Write the USD/BRL rate for the month into relatorio_pt.cotacoes (idempotent).
+    Done at the start of the run so ingest_manual.py can pick it up when entries
+    use valor_usd. Looker also reads this table to show the rate on the dashboard."""
+    from google.cloud import bigquery
+    c = bigquery.Client(project=BQ_PROJECT)
+    merge_sql = f"""
+        MERGE `{BQ_PROJECT}.relatorio_pt.cotacoes` T
+        USING (SELECT @competencia AS competencia, @par AS par,
+                      CAST(@taxa AS NUMERIC) AS taxa, @fonte AS fonte) S
+        ON T.competencia = S.competencia AND T.par = S.par
+        WHEN MATCHED THEN UPDATE SET taxa = S.taxa, fonte = S.fonte,
+                                     carregado_em = CURRENT_TIMESTAMP()
+        WHEN NOT MATCHED THEN INSERT (competencia, par, taxa, fonte, carregado_em)
+                              VALUES (S.competencia, S.par, S.taxa, S.fonte, CURRENT_TIMESTAMP())
+    """
+    job_config = bigquery.QueryJobConfig(query_parameters=[
+        bigquery.ScalarQueryParameter("competencia", "STRING", month),
+        bigquery.ScalarQueryParameter("par", "STRING", "USD/BRL"),
+        bigquery.ScalarQueryParameter("taxa", "STRING", str(rate)),
+        bigquery.ScalarQueryParameter("fonte", "STRING", fonte_label),
+    ])
+    c.query(merge_sql, job_config=job_config).result()
+    print(f"  cotacoes upsert: {month} USD/BRL = {rate} (fonte={fonte_label})")
+
+
 def run_step(step: dict, month: str, rate: str) -> int:
     cwd = REPO_ROOT / step["cwd"]
     cmd = step["args"](month, rate)
@@ -226,6 +252,13 @@ def main() -> int:
 
     print(f"Monthly close for {args.month} (USD/BRL = {args.usd_brl_rate})")
     print(f"Running {len(selected)} step(s): " + ", ".join(s["slug"] for s in selected))
+
+    # Persist the rate to relatorio_pt.cotacoes BEFORE any step runs — ingest_manual.py
+    # reads it back when an entry has `valor_usd` (instead of `valor_brl`).
+    try:
+        upsert_cotacao(args.month, args.usd_brl_rate, fonte_label="CLI")
+    except Exception as exc:
+        print(f"  WARNING: failed to upsert cotacao ({exc}). Manual valor_usd entries will fail.")
 
     results: list[tuple[str, int]] = []
     for step in selected:

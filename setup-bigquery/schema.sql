@@ -30,12 +30,14 @@ CREATE TABLE IF NOT EXISTS `relatorio_pt.custos` (
   produto        STRING,              -- Faceum, Mydhas, AI, Integração, Compartilhado, Saturno (legado)
   cloud_provedor STRING,              -- AWS, Azure, GCP (vazio quando não-cloud)
   item           STRING,              -- nome do item (serviço, ferramenta, perfil, fornecedor)
-  valor_brl      NUMERIC  NOT NULL,   -- valor em reais
-  fonte          STRING,              -- de qual extractor veio: 'aws', 'azure', 'gcp', 'jira', 'manual'
-  carregado_em   TIMESTAMP DEFAULT CURRENT_TIMESTAMP()  -- auditoria de quando foi inserido
+  valor_brl      NUMERIC  NOT NULL,   -- valor em reais (final, com encargo onde aplicável)
+  fonte          STRING,              -- 'aws', 'gcp', 'mongodb-atlas', 'jira', 'manual-<slug>', ...
+  carregado_em   TIMESTAMP DEFAULT CURRENT_TIMESTAMP(),
+  valor_usd      NUMERIC,             -- valor em USD ANTES da conversão (NULL para linhas BRL-nativas)
+  taxa_usd_brl   NUMERIC              -- taxa usada nesta linha (NULL para linhas BRL-nativas)
 )
 PARTITION BY DATE_TRUNC(PARSE_DATE('%Y-%m', competencia), MONTH)
-OPTIONS (description = 'Custos consolidados por mês, categoria, produto e provedor');
+OPTIONS (description = 'Custos consolidados por mês, categoria, produto e provedor. valor_usd/taxa_usd_brl preenchidos quando a fonte original é USD.');
 
 -- ----------------------------------------------------------------------------
 -- 3. Tabela de ENTREGAS (alimentada pelo jira_extractor)
@@ -54,7 +56,19 @@ PARTITION BY DATE_TRUNC(PARSE_DATE('%Y-%m', competencia), MONTH)
 OPTIONS (description = 'Entregas do mês agrupadas por épico, por produto');
 
 -- ----------------------------------------------------------------------------
--- 4. Tabela de MÉTRICAS DE NEGÓCIO (usuários, contratos) — entrada manual ou futura API
+-- 4. Tabela de COTAÇÕES (taxa de câmbio por mês — alimenta o Looker e o ingest manual)
+-- ----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `relatorio_pt.cotacoes` (
+  competencia  STRING NOT NULL,   -- 'YYYY-MM'
+  par          STRING NOT NULL,   -- 'USD/BRL'
+  taxa         NUMERIC NOT NULL,  -- taxa de câmbio aplicada ao mês
+  fonte        STRING,            -- 'PTAX-fechamento', 'manual', 'CLI', etc. (rastreabilidade)
+  carregado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
+)
+OPTIONS (description = 'Cotação mensal por par de moedas. Uma linha por (competencia, par). Gravada pelo close_month.py no início do run; lida pelo ingest_manual.py quando uma linha YAML tem valor_usd.');
+
+-- ----------------------------------------------------------------------------
+-- 5. Tabela de MÉTRICAS DE NEGÓCIO (usuários, contratos) — entrada manual ou futura API
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `relatorio_pt.metricas_negocio` (
   competencia      STRING NOT NULL,  -- 'YYYY-MM'

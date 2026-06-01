@@ -45,7 +45,8 @@ KNOWN_CATEGORIAS = {
 KNOWN_PRODUTOS = {
     "Faceum", "Mydhas", "AI", "Integração", "Compartilhado", "Saturno",
 }
-REQUIRED_FIELDS = ("categoria", "produto", "item", "valor_brl", "fonte")
+REQUIRED_FIELDS_BASE = ("categoria", "produto", "item", "fonte")
+# One of valor_brl OR valor_usd is required per entry (not both).
 
 # Encargo multipliers applied at ingest time, keyed by `fonte`.
 # Manifest values are RAW (salário base / NF bruta). Encargo is a business
@@ -73,8 +74,30 @@ def load_manifest(path: Path) -> list[dict]:
     return data
 
 
-def validate(entries: list[dict], competencia: str) -> list[dict]:
-    """Validate entries and return BigQuery-ready row dicts."""
+def get_taxa(bq_project: str, competencia: str, par: str = "USD/BRL") -> float | None:
+    """Look up the FX rate set by close_month.py for this month, or None."""
+    from google.cloud import bigquery
+    c = bigquery.Client(project=bq_project)
+    q = (
+        f"SELECT CAST(taxa AS FLOAT64) AS taxa "
+        f"FROM `{bq_project}.relatorio_pt.cotacoes` "
+        f"WHERE competencia = @competencia AND par = @par LIMIT 1"
+    )
+    job = c.query(q, job_config=bigquery.QueryJobConfig(query_parameters=[
+        bigquery.ScalarQueryParameter("competencia", "STRING", competencia),
+        bigquery.ScalarQueryParameter("par", "STRING", par),
+    ]))
+    rows = list(job.result())
+    return float(rows[0]["taxa"]) if rows else None
+
+
+def validate(entries: list[dict], competencia: str, taxa_usd_brl: float | None) -> list[dict]:
+    """Validate entries and return BigQuery-ready row dicts.
+
+    Each entry must have EITHER `valor_brl` (BRL-native: folha, Gryfo, Beonup, …)
+    OR `valor_usd` (USD-native: Atlassian, Copilot, …) — never both.
+    USD entries are converted via `taxa_usd_brl` (read from cotacoes table by main()).
+    """
     rows: list[dict] = []
     seen_keys: set[tuple] = set()
 
@@ -82,16 +105,43 @@ def validate(entries: list[dict], competencia: str) -> list[dict]:
         if not isinstance(entry, dict):
             raise ValueError(f"Entry #{i}: must be a mapping, got {type(entry).__name__}")
 
-        for field in REQUIRED_FIELDS:
+        for field in REQUIRED_FIELDS_BASE:
             if field not in entry or entry[field] in ("", None):
                 raise ValueError(f"Entry #{i}: missing required field '{field}'")
 
-        try:
-            valor = float(entry["valor_brl"])
-        except (TypeError, ValueError):
-            raise ValueError(f"Entry #{i}: valor_brl must be numeric, got {entry['valor_brl']!r}")
-        if valor <= 0:
-            raise ValueError(f"Entry #{i}: valor_brl must be > 0, got {valor}")
+        has_brl = entry.get("valor_brl") not in (None, "")
+        has_usd = entry.get("valor_usd") not in (None, "")
+        if has_brl == has_usd:
+            raise ValueError(
+                f"Entry #{i}: must have EXACTLY ONE of valor_brl or valor_usd "
+                f"(got valor_brl={entry.get('valor_brl')!r}, valor_usd={entry.get('valor_usd')!r})"
+            )
+
+        if has_usd:
+            try:
+                usd = float(entry["valor_usd"])
+            except (TypeError, ValueError):
+                raise ValueError(f"Entry #{i}: valor_usd must be numeric, got {entry['valor_usd']!r}")
+            if usd <= 0:
+                raise ValueError(f"Entry #{i}: valor_usd must be > 0, got {usd}")
+            if taxa_usd_brl is None:
+                raise ValueError(
+                    f"Entry #{i} has valor_usd but no USD/BRL rate is set in "
+                    f"`relatorio_pt.cotacoes` for {competencia}. Run close_month.py "
+                    f"(or set the rate manually) before ingesting USD entries."
+                )
+            base_brl = usd * taxa_usd_brl
+            valor_usd_out: float | None = round(usd, 4)
+            taxa_out: float | None = round(taxa_usd_brl, 4)
+        else:
+            try:
+                base_brl = float(entry["valor_brl"])
+            except (TypeError, ValueError):
+                raise ValueError(f"Entry #{i}: valor_brl must be numeric, got {entry['valor_brl']!r}")
+            if base_brl <= 0:
+                raise ValueError(f"Entry #{i}: valor_brl must be > 0, got {base_brl}")
+            valor_usd_out = None
+            taxa_out = None
 
         if entry["categoria"] not in KNOWN_CATEGORIAS:
             log.warning("Entry #%d: unknown categoria '%s' (known: %s)",
@@ -116,8 +166,10 @@ def validate(entries: list[dict], competencia: str) -> list[dict]:
             "produto": entry["produto"],
             "cloud_provedor": entry.get("cloud_provedor"),  # nullable in schema
             "item": entry["item"],
-            "valor_brl": round(valor * encargo, 2),
+            "valor_brl": round(base_brl * encargo, 2),
             "fonte": entry["fonte"],
+            "valor_usd": valor_usd_out,
+            "taxa_usd_brl": taxa_out,
         })
 
     return rows
@@ -171,8 +223,24 @@ def main() -> int:
         log.warning("Manifest is empty — nothing to ingest.")
         return 0
 
+    # If any entry uses valor_usd, look up the month's USD/BRL rate from cotacoes.
+    needs_taxa = any(e.get("valor_usd") not in (None, "") for e in entries if isinstance(e, dict))
+    taxa: float | None = None
+    if needs_taxa:
+        if not args.bq_project:
+            log.error("Manifest has valor_usd entries but --bq-project not given. "
+                      "Need BQ access to read the taxa from `relatorio_pt.cotacoes`.")
+            return 1
+        taxa = get_taxa(args.bq_project, args.month)
+        if taxa is None:
+            log.error("No USD/BRL rate in `%s.relatorio_pt.cotacoes` for %s. "
+                      "Run `close_month.py --month %s --usd-brl-rate ...` first "
+                      "(or set the rate manually).", args.bq_project, args.month, args.month)
+            return 1
+        log.info("Using USD/BRL taxa = %.4f from cotacoes for %s.", taxa, args.month)
+
     try:
-        rows = validate(entries, args.month)
+        rows = validate(entries, args.month, taxa)
     except ValueError as exc:
         log.error("Validation failed: %s", exc)
         return 1

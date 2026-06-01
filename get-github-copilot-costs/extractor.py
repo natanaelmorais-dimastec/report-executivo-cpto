@@ -93,6 +93,8 @@ def to_rows(by_sku: dict[str, float], competencia: str, usd_brl_rate: float) -> 
             "produto": "Compartilhado",
             "item": f"GitHub Copilot - {sku}",
             "valor_brl": round(usd * usd_brl_rate, 2),
+            "valor_usd": round(usd, 4),
+            "taxa_usd_brl": round(usd_brl_rate, 4),
         })
     return rows
 
@@ -178,6 +180,8 @@ def main() -> int:
                 "item": r["item"],
                 "valor_brl": float(r["valor_brl"]),
                 "fonte": "github-copilot",
+                "valor_usd": float(r["valor_usd"]),
+                "taxa_usd_brl": float(r["taxa_usd_brl"]),
             }
             for r in rows
         ]

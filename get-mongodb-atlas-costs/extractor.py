@@ -159,6 +159,8 @@ def aggregate(invoice: dict, competencia: str, usd_brl_rate: float) -> list[dict
             "produto": s["produto"],
             "item": s["item"],
             "valor_brl": round(s["valor_usd"] * usd_brl_rate, 2),
+            "valor_usd": round(s["valor_usd"], 4),
+            "taxa_usd_brl": round(usd_brl_rate, 4),
         })
     return rows
 
@@ -257,6 +259,8 @@ def main() -> int:
                 "item": r["item"],
                 "valor_brl": float(r["valor_brl"]),
                 "fonte": "mongodb-atlas",
+                "valor_usd": float(r["valor_usd"]),
+                "taxa_usd_brl": float(r["taxa_usd_brl"]),
             }
             for r in rows
         ]

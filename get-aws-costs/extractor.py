@@ -308,6 +308,7 @@ def main() -> int:
         for r in attributed:
             ambiente = r["ambiente"]
             provedor = "Azure" if ambiente == "Azure" else ("GCP" if ambiente == "GCP" else "AWS")
+            is_usd = r.get("currency") == "USD" and args.usd_brl_rate
             bq_rows.append({
                 "competencia": r["competencia"],
                 "categoria": "Cloud",
@@ -316,6 +317,8 @@ def main() -> int:
                 "item": ambiente,
                 "valor_brl": float(r["valor_brl"]),
                 "fonte": "aws",
+                "valor_usd": round(float(r["amount"]), 4) if is_usd else None,
+                "taxa_usd_brl": round(args.usd_brl_rate, 4) if is_usd else None,
             })
         # idempotent per (month, fonte) — only replaces AWS rows, leaves gcp/azure intact
         for mes in sorted({r["competencia"] for r in bq_rows}):

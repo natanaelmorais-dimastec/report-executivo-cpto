@@ -47,7 +47,10 @@ Use a cotação **PTAX de fechamento do último dia útil do mês de pagamento**
 (o mês do relatório). Exemplo: para competência 2026-05 (= valores pagos em
 maio), use a cotação de 31/mai (ou 30/mai se 31 for fim de semana).
 
-Anote o valor — vai ser passado no `--usd-brl-rate`.
+Essa taxa será passada no `--usd-brl-rate` e o `close_month.py` grava
+automaticamente em `relatorio_pt.cotacoes` (uma linha por mês). Looker
+consulta essa tabela para mostrar a taxa no dashboard. Cada linha USD em
+`custos` carrega `valor_usd` e `taxa_usd_brl` para audit por linha.
 
 ### 2. Preparar o manifest manual
 
@@ -65,6 +68,19 @@ fatura** como auditoria (o script não parseia — só lê o YAML).
 script aplica encargo automaticamente (CLT × 1,70, Estágio × 1,05, PJ ×
 1,00) via `ENCARGO_BY_FONTE` em `ingest-manual-costs/ingest_manual.py`.
 **Não multiplique no YAML.**
+
+**Linhas em USD:** use `valor_usd` em vez de `valor_brl` para fornecedores
+que cobram em dólar (Atlassian, Excalidraw, Copilot, SendGrid). O ingestor
+lê a taxa de `relatorio_pt.cotacoes` (gravada pelo `close_month.py`) e
+converte. **Não converta manualmente no YAML.** Exemplo:
+
+```yaml
+- categoria: Ferramentas
+  produto: Compartilhado
+  item: "Atlassian (Jira)"
+  valor_usd: 759.03       # ← USD direto da fatura
+  fonte: manual-atlassian
+```
 
 **Compartilhado:** se uma pessoa divide tempo entre produtos, lance como
 `produto: Compartilhado` numa linha só. Não tente ratear pelo Faceum/Mydhas

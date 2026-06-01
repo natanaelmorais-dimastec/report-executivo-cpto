@@ -47,14 +47,17 @@ Faceum, Mydhas, AI, Integração, Compartilhado, Saturno (legado).
 Danysoft R$ 12,7k) = ~10% do custo total de tecnologia. A migração Saturno→Faceum/Mydhas
 elimina esse custo. Conectar custo do legado com entregas de migração é o argumento de ROI.
 
-**Custo total de referência (maio/2026):** **R$ 387.570,74** — 14 fontes carregadas
+**Custo total de referência (maio/2026):** **R$ 389.092,85** — 14 fontes
 (aws, gcp, manual-folha-clt/pj/estagio, manual-gryfo, manual-azure-saturno,
 manual-danysoft, manual-beonup, manual-atlassian, manual-excalidraw,
 manual-sendgrid, manual-github-copilot, mongodb-atlas). Inclui encargo CLT 1,70
-e Estágio 1,05 aplicados no ingest. Pendência única: **O365** (billing via
-Ingram CSP). Câmbio usado: USD/BRL = 5,04. BQ é a **fonte da verdade** —
-divergências com o Looker (R$ 365.187,62) refletem dados desatualizados ou
-omissões na planilha do Looker, não no BQ.
+e Estágio 1,05. **Câmbio USD/BRL = 5,04** gravado em
+`relatorio_pt.cotacoes` (linha por mês, fonte=`CLI`); colunas `valor_usd` e
+`taxa_usd_brl` em `custos` registram a conversão por linha quando a fonte
+original é USD (6 fontes: aws, mongodb-atlas, manual-atlassian,
+manual-excalidraw, manual-sendgrid, manual-github-copilot — total $11.971,82
+em maio). Pendência única: **O365** (billing via Ingram CSP). BQ é a
+**fonte da verdade**.
 
 **Regime contábil do relatório:** **CASH BASIS** (regime de caixa). `competencia=YYYY-MM`
 é o mês em que a fatura foi **paga**, não o mês de uso. Para a maioria das fontes
@@ -177,15 +180,29 @@ Estas regras valem para qualquer código gerado ou alterado aqui:
    `ingest-manual-costs` recebe o salário base / NF bruta. O script aplica o
    encargo via `ENCARGO_BY_FONTE` (CLT 1,70 / Estágio 1,05 / PJ 1,00) no
    momento do `replace_month`. NÃO multiplique no YAML — duplica.
+10. **USD no manifest = `valor_usd`, sem multiplicar manualmente.** Linhas YAML
+    cobradas em USD (Atlassian, Excalidraw, Copilot, SendGrid) devem usar
+    `valor_usd` em vez de `valor_brl`. O `ingest_manual.py` lê a taxa de
+    `relatorio_pt.cotacoes` para o mês e converte. `close_month.py` grava a
+    taxa antes de rodar os steps, então a sequência natural já cuida. Para
+    rodar só o ingest sem o orchestrator, garanta que a linha existe em
+    `cotacoes` (ou rode `close_month.py` antes).
 
 ---
 
 ## Schema do BigQuery (dataset relatorio_pt)
 
 **Tabela `custos`** (chave temporal: competencia STRING 'YYYY-MM')
-`competencia, categoria, produto, cloud_provedor, item, valor_brl (NUMERIC), fonte, carregado_em`
+`competencia, categoria, produto, cloud_provedor, item, valor_brl (NUMERIC), fonte, carregado_em, valor_usd (NUMERIC NULL), taxa_usd_brl (NUMERIC NULL)`
 - `categoria`: Time | Cloud | Ferramentas | Parceiros/Operação | Fornecedor de Produto
-- `fonte`: aws | azure | gcp | jira | manual
+- `fonte`: aws | azure | gcp | jira | manual-<slug> | github-copilot | mongodb-atlas | sendgrid
+- `valor_usd` / `taxa_usd_brl`: populados quando a fonte original é USD; NULL para BRL-nativas (folha, Gryfo, Beonup, Danysoft, Azure-Saturno, GCP).
+
+**Tabela `cotacoes`** (chave: (competencia, par))
+`competencia, par, taxa (NUMERIC), fonte, carregado_em`
+- Uma linha por (mês, par de moedas). Gravada por `close_month.py` no início do run via MERGE — re-rodar com taxa diferente atualiza a linha.
+- O `ingest_manual.py` lê dessa tabela quando uma linha YAML tem `valor_usd` (vez de `valor_brl`).
+- Looker une em `competencia` para mostrar a taxa no dashboard.
 
 **Tabela `entregas`**
 `competencia, produto, titulo, impacto, status, n_issues, carregado_em`
