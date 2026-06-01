@@ -29,7 +29,10 @@ ponto / reconhecimento facial), **Mydhas** (HR tech), **AI** (iniciativas de IA)
 **Saturno** (legado .NET em migração para Faceum/Mydhas).
 
 **Naturezas de custo do relatório (categoria):**
-- `Time` — folha (PJ sem encargo; CLT com fator de encargo ~1,70 estimado; estágio)
+- `Time` — folha. O manifest YAML guarda valores **brutos**; o ingest aplica o
+  **fator de encargo automaticamente** via `ENCARGO_BY_FONTE` em
+  `ingest-manual-costs/ingest_manual.py`: CLT × 1,70, Estágio × 1,05, PJ × 1,00.
+  Os números no BigQuery já são **onerados** (= custo real para o report).
 - `Cloud` — AWS, Azure, GCP (campo cloud_provedor distingue)
 - `Fornecedor de Produto` — Gryfo (reconhecimento facial, ~R$ 80k/mês, 100% Faceum)
 - `Parceiros/Operação` — Beonup (sustenta AWS), Danysoft (sustenta Azure)
@@ -165,6 +168,10 @@ Estas regras valem para qualquer código gerado ou alterado aqui:
    o mês anterior e rotular a competência com o mês do relatório (ver `month_to_invoice` em
    `get-gcp-costs/extractor.py`, `prev_month` em `get-aws-costs/extractor.py`). Não misturar
    convenções entre fontes — números do CFO batem invoice por invoice.
+9. **Folha em valor BRUTO no manifest, ONERADO em BQ.** O YAML do
+   `ingest-manual-costs` recebe o salário base / NF bruta. O script aplica o
+   encargo via `ENCARGO_BY_FONTE` (CLT 1,70 / Estágio 1,05 / PJ 1,00) no
+   momento do `replace_month`. NÃO multiplique no YAML — duplica.
 
 ---
 
@@ -248,7 +255,9 @@ recurso, (3) rateio por pesos do tag audit, (4) Compartilhado. Conta de produç�
   console GCP > Billing > Export antes do fechamento de junho.
 - **Coluna `impacto` das entregas:** refinar placeholders manualmente após cada rodada
   do Jira extractor.
-- **Fator de encargo CLT (1,70):** estimativa — confirmar com contabilidade.
+- **Fatores de encargo (CLT 1,70, Estágio 1,05):** estimativa — confirmar com
+  contabilidade. Aplicados em `ingest-manual-costs/ingest_manual.py` (constante
+  `ENCARGO_BY_FONTE`). Mudar lá quando o real for confirmado e re-rodar o mês.
 - **Jira API:** endpoint migrado para `/rest/api/3/search/jql` (o antigo foi depreciado);
   paginação por `nextPageToken`.
 

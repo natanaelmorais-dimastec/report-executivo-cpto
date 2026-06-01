@@ -47,6 +47,18 @@ KNOWN_PRODUTOS = {
 }
 REQUIRED_FIELDS = ("categoria", "produto", "item", "valor_brl", "fonte")
 
+# Encargo multipliers applied at ingest time, keyed by `fonte`.
+# Manifest values are RAW (salário base / NF bruta). Encargo is a business
+# rule that converts to "custo onerado" for the executive report:
+#   - CLT:     1.70  (provisão de férias, 13º, INSS patronal, FGTS — estimado)
+#   - Estágio: 1.05  (vale transporte, alimentação)
+# Any fonte not listed = no encargo (multiplier 1.0).
+# To change rates, update this dict and re-run the month (idempotent).
+ENCARGO_BY_FONTE: dict[str, float] = {
+    "manual-folha-clt":     1.70,
+    "manual-folha-estagio": 1.05,
+}
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 log = logging.getLogger("ingest_manual")
 
@@ -97,13 +109,14 @@ def validate(entries: list[dict], competencia: str) -> list[dict]:
             )
         seen_keys.add(key)
 
+        encargo = ENCARGO_BY_FONTE.get(entry["fonte"], 1.0)
         rows.append({
             "competencia": competencia,
             "categoria": entry["categoria"],
             "produto": entry["produto"],
             "cloud_provedor": entry.get("cloud_provedor"),  # nullable in schema
             "item": entry["item"],
-            "valor_brl": round(valor, 2),
+            "valor_brl": round(valor * encargo, 2),
             "fonte": entry["fonte"],
         })
 
@@ -117,10 +130,12 @@ def print_summary(rows: list[dict]) -> None:
         by_fonte[r["fonte"]] += r["valor_brl"]
         by_categoria[r["categoria"]] += r["valor_brl"]
     total = sum(r["valor_brl"] for r in rows)
-    log.info("--- Summary (R$) ---")
+    log.info("--- Summary (R$, encargo applied where applicable) ---")
     log.info("  By fonte:")
     for fonte, value in sorted(by_fonte.items(), key=lambda kv: -kv[1]):
-        log.info("    %-30s %12.2f", fonte, value)
+        mult = ENCARGO_BY_FONTE.get(fonte)
+        tag = f" (encargo ×{mult})" if mult else ""
+        log.info("    %-30s %12.2f%s", fonte, value, tag)
     log.info("  By categoria:")
     for cat, value in sorted(by_categoria.items(), key=lambda kv: -kv[1]):
         log.info("    %-30s %12.2f", cat, value)
