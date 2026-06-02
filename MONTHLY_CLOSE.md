@@ -155,11 +155,14 @@ GROUP BY fonte ORDER BY total DESC
 "
 ```
 
-### 6. Refinar entregas (manual)
+### 6. Revisar entregas (opcional)
 
-O extractor do Jira preenche `entregas.impacto` com placeholder. Antes de
-mandar pro CEO/CFO, refine a coluna para uma frase de impacto de negócio
-por épico:
+O extractor do Jira já preenche `entregas.impacto` automaticamente combinando
+a **description do épico** + **lista de issues concluídas no mês**. Para a
+maioria dos épicos isso já é suficiente.
+
+Caso queira refinar manualmente um épico específico (frase de impacto de
+negócio mais executiva), atualize no BQ:
 
 ```sql
 UPDATE `executive-reports-cpto.relatorio_pt.entregas`
@@ -168,6 +171,11 @@ WHERE competencia = '2026-05'
   AND produto = 'Mydhas'
   AND titulo = 'Backend Mydhas e Saturno';
 ```
+
+> Edição manual sobrevive ao próximo `close_month.py` **somente para o mês já
+> rotulado** — re-rodar o Jira para o mesmo mês usa `replace_month` em
+> `entregas` e **apaga as edições**. Solução: editar depois do close mensal,
+> não antes.
 
 ### 7. Abrir o Looker
 

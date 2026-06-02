@@ -275,8 +275,10 @@ recurso, (3) rateio por pesos do tag audit, (4) Compartilhado. Conta de produç�
   `gcp-billing-export-stalled.md`). Não atrapalhou maio (cash basis consulta abril), mas
   **quebra junho** se não for resolvido — `invoice.month=202605` está incompleto. Ação:
   console GCP > Billing > Export antes do fechamento de junho.
-- **Coluna `impacto` das entregas:** refinar placeholders manualmente após cada rodada
-  do Jira extractor.
+- **Coluna `impacto` das entregas:** preenchida automaticamente pelo extractor com
+  `<description do épico>. Entregas no mês: <issues>` (ou só lista de issues se a
+  description estiver vazia). Editar manualmente no BQ só se um épico específico
+  precisar de framing diferente.
 - **Fatores de encargo (CLT 1,70, Estágio 1,05):** estimativa — confirmar com
   contabilidade. Aplicados em `ingest-manual-costs/ingest_manual.py` (constante
   `ENCARGO_BY_FONTE`). Mudar lá quando o real for confirmado e re-rodar o mês.

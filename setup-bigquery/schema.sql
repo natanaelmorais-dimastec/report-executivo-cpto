@@ -119,7 +119,9 @@ LEFT JOIN `relatorio_pt.cotacoes` cot
 -- ----------------------------------------------------------------------------
 -- 7. VIEW de KPIs de eficiência POR PRODUTO (custo Faceum / usuários Faceum, etc.)
 --    Granularidade: uma linha por (competencia × produto).
---    Substitui o blend manual do Looker — o JOIN vive aqui.
+--    INNER JOIN: só aparecem produtos QUE TÊM linha em `metricas_negocio`
+--    (Faceum, Mydhas hoje) — Compartilhado/AI/Saturno/Integração são
+--    automaticamente filtrados, evitando NULL em gráficos de barra do Looker.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW `relatorio_pt.vw_eficiencia` AS
 SELECT
@@ -137,7 +139,7 @@ FROM (
   WHERE produto IS NOT NULL
   GROUP BY competencia, produto
 ) c
-LEFT JOIN `relatorio_pt.metricas_negocio` m
+INNER JOIN `relatorio_pt.metricas_negocio` m
   ON c.competencia = m.competencia AND c.produto = m.produto;
 
 -- ============================================================================

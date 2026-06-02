@@ -157,14 +157,66 @@ def fetch_done_issues(client: JiraClient, month: str) -> list[dict]:
 
 
 def fetch_epics(client: JiraClient, epic_keys: set[str]) -> dict[str, dict]:
-    """Fetch epic details (summary, status) for the given epic keys."""
+    """Fetch epic details (summary, status, project, description) for the given keys."""
     if not epic_keys:
         return {}
     keys = ", ".join(f'"{k}"' for k in epic_keys)
     jql = f'issuekey in ({keys})'
-    fields = ["summary", "status", "project"]
+    fields = ["summary", "status", "project", "description"]
     epics = client.search(jql, fields)
     return {e["key"]: e for e in epics}
+
+
+# --- impacto building -------------------------------------------------------
+
+# Limits to keep the impacto column readable in tables / scorecards.
+IMPACTO_MAX_DESCRIPTION_CHARS = 300
+IMPACTO_MAX_ITEMS = 10
+
+
+def adf_to_text(node) -> str:
+    """Flatten Jira API v3 Atlassian Document Format (description) to plain text.
+
+    ADF is a recursive JSON tree of `{type, content?, text?}` nodes. We extract
+    every leaf `text` and join with spaces. Newlines are converted to spaces so
+    the column stays single-line for table rendering."""
+    if node is None:
+        return ""
+    if isinstance(node, str):
+        return node
+    if isinstance(node, list):
+        return " ".join(adf_to_text(c) for c in node).strip()
+    if isinstance(node, dict):
+        parts: list[str] = []
+        if "text" in node:
+            parts.append(str(node["text"]))
+        if "content" in node:
+            parts.append(adf_to_text(node["content"]))
+        return " ".join(p for p in parts if p).strip()
+    return ""
+
+
+def build_impacto(epic_description, child_issues: list[dict]) -> str:
+    """Compose `impacto` from epic description + list of child issue summaries.
+
+    Format C: "<description>. Entregas no mês: A; B; C."
+    Fallback A (no description): "Concluído: A; B; C."
+    Both truncate the issue list at IMPACTO_MAX_ITEMS (with "+N outras")."""
+    desc = adf_to_text(epic_description).strip()
+    desc = " ".join(desc.split())  # collapse whitespace
+    if len(desc) > IMPACTO_MAX_DESCRIPTION_CHARS:
+        desc = desc[:IMPACTO_MAX_DESCRIPTION_CHARS].rstrip() + "..."
+
+    summaries = [i["fields"]["summary"].strip() for i in child_issues if i["fields"].get("summary")]
+    if len(summaries) > IMPACTO_MAX_ITEMS:
+        listed = "; ".join(summaries[:IMPACTO_MAX_ITEMS])
+        listed += f"; (+{len(summaries) - IMPACTO_MAX_ITEMS} outras)"
+    else:
+        listed = "; ".join(summaries)
+
+    if desc:
+        return f"{desc}. Entregas no mês: {listed}." if listed else f"{desc}."
+    return f"Concluído: {listed}." if listed else "Sem detalhes."
 
 
 def group_by_epic(issues: list[dict], epics: dict[str, dict]) -> list[dict]:
@@ -189,11 +241,13 @@ def group_by_epic(issues: list[dict], epics: dict[str, dict]) -> list[dict]:
         if epic:
             epic_summary = epic["fields"]["summary"]
             epic_status = epic["fields"]["status"]["name"]
+            epic_description = epic["fields"].get("description")
             project_key = epic["fields"]["project"]["key"]
         else:
             # epic details not fetched (parent might not be an epic) -> use first child's project
             epic_summary = f"[{epic_key}]"
             epic_status = ""
+            epic_description = None
             project_key = child_issues[0]["fields"]["project"]["key"]
 
         produto = project_to_product(project_key)
@@ -202,25 +256,25 @@ def group_by_epic(issues: list[dict], epics: dict[str, dict]) -> list[dict]:
             "epic_key": epic_key,
             "produto": produto,
             "titulo": epic_summary,
-            "impacto": f"{len(child_issues)} issue(s) concluída(s) no mês",  # placeholder, edit later
+            "impacto": build_impacto(epic_description, child_issues),
             "status": status,
             "n_issues": len(child_issues),
         })
 
-    # issues with no epic -> grouped as a single "Avulsas" line per product
+    # issues with no epic -> one "Avulsas" line per product, listing what was done
     if no_epic:
-        per_product: dict[str, int] = defaultdict(int)
+        per_product_issues: dict[str, list[dict]] = defaultdict(list)
         for issue in no_epic:
             pk = issue["fields"]["project"]["key"]
-            per_product[project_to_product(pk)] += 1
-        for produto, count in per_product.items():
+            per_product_issues[project_to_product(pk)].append(issue)
+        for produto, prod_issues in per_product_issues.items():
             rows.append({
                 "epic_key": "",
                 "produto": produto,
                 "titulo": "Entregas avulsas (sem épico)",
-                "impacto": f"{count} issue(s) concluída(s) sem épico associado",
+                "impacto": build_impacto(None, prod_issues),
                 "status": "Entregue",
-                "n_issues": count,
+                "n_issues": len(prod_issues),
             })
 
     rows.sort(key=lambda r: (r["produto"], -r["n_issues"]))
@@ -319,7 +373,8 @@ def main() -> int:
 
     write_csv(rows, args.month, args.output)
     print_summary(rows)
-    log.info("Review the CSV: refine the 'impacto' column (placeholders) before sharing.")
+    log.info("`impacto` is built from epic description + listed issue summaries. "
+             "Edit in BQ if a row needs a different business framing.")
 
     # --- Optional: load into BigQuery ---
     if args.bq_project:
