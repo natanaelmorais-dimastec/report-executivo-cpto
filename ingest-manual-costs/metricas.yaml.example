@@ -1,0 +1,19 @@
+# Métricas de negócio — template.
+#
+# Copy to manual-invoices/<YYYY-MM>/metricas.yaml e preencha os números do
+# fim do mês. Lista YAML — uma entrada por produto que tem usuários/contratos.
+#
+# Produtos conhecidos: Faceum, Mydhas, AI, Integração, Compartilhado, Saturno.
+# Use só os que fazem sentido (Compartilhado e Integração geralmente não têm
+# usuário próprio; AI é WIP).
+#
+# Idempotente: ingest_metricas.py faz MERGE em metricas_negocio por
+# (competencia, produto). Re-rodar substitui linhas existentes.
+
+- produto: Faceum
+  usuarios_ativos: 0     # FILL IN
+  contratos_ativos: 0    # FILL IN
+
+- produto: Mydhas
+  usuarios_ativos: 0     # FILL IN
+  contratos_ativos: 0    # FILL IN

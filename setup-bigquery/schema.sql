@@ -69,14 +69,18 @@ OPTIONS (description = 'Cotação mensal por par de moedas. Uma linha por (compe
 
 -- ----------------------------------------------------------------------------
 -- 5. Tabela de MÉTRICAS DE NEGÓCIO (usuários, contratos) — entrada manual ou futura API
+--    Chave lógica: (competencia, produto). Carregada pelo
+--    `ingest-manual-costs/ingest_metricas.py` a partir de
+--    `manual-invoices/<YYYY-MM>/metricas.yaml`.
 -- ----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `relatorio_pt.metricas_negocio` (
   competencia      STRING NOT NULL,  -- 'YYYY-MM'
+  produto          STRING,           -- Faceum, Mydhas, AI (NULL = total/legado)
   usuarios_ativos  INT64,
   contratos_ativos INT64,
   carregado_em     TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
 )
-OPTIONS (description = 'Usuários e contratos ativos por mês, para KPIs de eficiência');
+OPTIONS (description = 'Usuários e contratos ativos por (mês × produto), para KPIs de eficiência por produto');
 
 -- ----------------------------------------------------------------------------
 -- 5. VIEW de custo total por mês (o Looker usa para cruzar com métricas)
@@ -90,21 +94,51 @@ FROM `relatorio_pt.custos`
 GROUP BY competencia;
 
 -- ----------------------------------------------------------------------------
--- 6. VIEW de KPIs de eficiência (custo por usuário / contrato)
---    Faz o cruzamento que na planilha exigia "blend". Aqui é um JOIN simples.
+-- 6.5. VIEW custos com cotação (LEFT JOIN custos × cotacoes em competencia)
+--      Looker conecta aqui em vez de em `custos` direto — `taxa_mes_usd_brl` já
+--      vem em cada linha (sem blend) para exibir no header do dashboard.
+-- ----------------------------------------------------------------------------
+CREATE OR REPLACE VIEW `relatorio_pt.vw_custos_com_cotacao` AS
+SELECT
+  c.competencia,
+  c.categoria,
+  c.produto,
+  c.cloud_provedor,
+  c.item,
+  c.valor_brl,
+  c.fonte,
+  c.carregado_em,
+  c.valor_usd,
+  c.taxa_usd_brl,                  -- taxa usada NESTA linha (NULL p/ BRL-nativa)
+  cot.taxa AS taxa_mes_usd_brl,    -- taxa OFICIAL do mês (sempre presente quando cotacoes existe)
+  cot.fonte AS taxa_fonte
+FROM `relatorio_pt.custos` c
+LEFT JOIN `relatorio_pt.cotacoes` cot
+  ON c.competencia = cot.competencia AND cot.par = 'USD/BRL';
+
+-- ----------------------------------------------------------------------------
+-- 7. VIEW de KPIs de eficiência POR PRODUTO (custo Faceum / usuários Faceum, etc.)
+--    Granularidade: uma linha por (competencia × produto).
+--    Substitui o blend manual do Looker — o JOIN vive aqui.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW `relatorio_pt.vw_eficiencia` AS
 SELECT
   c.competencia,
-  c.custo_total_brl,
+  c.produto,
+  c.custo_produto_brl,
   m.usuarios_ativos,
   m.contratos_ativos,
-  SAFE_DIVIDE(c.custo_total_brl, m.usuarios_ativos)  AS custo_por_usuario,
-  SAFE_DIVIDE(c.custo_total_brl, m.contratos_ativos) AS custo_por_contrato,
-  SAFE_DIVIDE(m.usuarios_ativos, m.contratos_ativos) AS usuarios_por_contrato
-FROM `relatorio_pt.vw_custo_mensal` c
+  SAFE_DIVIDE(c.custo_produto_brl, m.usuarios_ativos)  AS custo_por_usuario,
+  SAFE_DIVIDE(c.custo_produto_brl, m.contratos_ativos) AS custo_por_contrato,
+  SAFE_DIVIDE(m.usuarios_ativos, m.contratos_ativos)   AS usuarios_por_contrato
+FROM (
+  SELECT competencia, produto, ROUND(SUM(valor_brl), 2) AS custo_produto_brl
+  FROM `relatorio_pt.custos`
+  WHERE produto IS NOT NULL
+  GROUP BY competencia, produto
+) c
 LEFT JOIN `relatorio_pt.metricas_negocio` m
-  ON c.competencia = m.competencia;
+  ON c.competencia = m.competencia AND c.produto = m.produto;
 
 -- ============================================================================
 -- Pronto. No Looker, conecte:

@@ -98,6 +98,15 @@ def manuais_args(month: str, rate: str) -> list[str]:
     ]
 
 
+def metricas_args(month: str, rate: str) -> list[str]:
+    return [
+        "python3", "ingest_metricas.py",
+        "--month", month,
+        "--invoices-dir", "../manual-invoices",
+        "--bq-project", BQ_PROJECT,
+    ]
+
+
 def jira_args(month: str, rate: str) -> list[str]:
     return [
         "python3", "jira_extractor.py",
@@ -149,6 +158,12 @@ STEPS: list[dict] = [
         "label": "Manual ingest (YAML)",
         "cwd": "ingest-manual-costs",
         "args": manuais_args,
+    },
+    {
+        "slug": "metricas",
+        "label": "Métricas de negócio (manual YAML)",
+        "cwd": "ingest-manual-costs",
+        "args": metricas_args,
     },
     {
         "slug": "jira",
