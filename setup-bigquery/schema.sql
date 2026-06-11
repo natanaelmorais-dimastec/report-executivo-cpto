@@ -16,7 +16,7 @@
 -- 1. Criar o dataset (equivalente a um "banco/schema")
 CREATE SCHEMA IF NOT EXISTS `relatorio_pt`
 OPTIONS (
-  location = 'southamerica-east1',   -- São Paulo, perto dos seus dados
+  location = 'US',                   -- dataset criado em US (multi-region); Looker conecta sem custo extra
   description = 'Dados do relatório mensal de Produtos & Tecnologia'
 );
 
@@ -120,27 +120,75 @@ LEFT JOIN `relatorio_pt.cotacoes` cot
 -- 7. VIEW de KPIs de eficiência POR PRODUTO (custo Faceum / usuários Faceum, etc.)
 --    Granularidade: uma linha por (competencia × produto).
 --    INNER JOIN: só aparecem produtos QUE TÊM linha em `metricas_negocio`
---    (Faceum, Mydhas hoje) — Compartilhado/AI/Saturno/Integração são
---    automaticamente filtrados, evitando NULL em gráficos de barra do Looker.
+--    (Faceum, Mydhas hoje) — AI/Saturno/Integração são automaticamente
+--    filtrados, evitando NULL em gráficos de barra do Looker.
+--
+--    Rateio do bucket `produto='Compartilhado'`:
+--      O custo Compartilhado (folha dividida, Beonup, Atlassian, Excalidraw,
+--      Copilot, AWS shared) é distribuído entre os produtos absorventes
+--      (= os que têm linha em metricas_negocio) proporcionalmente ao custo
+--      DIRETO de cada um. Assim:
+--        custo_produto_brl = custo_direto + share_proporcional_do_compartilhado
+--      Mantemos as duas parcelas como colunas separadas para transparência.
+--      AI/Saturno NÃO absorvem (não têm usuários/contratos no report).
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW `relatorio_pt.vw_eficiencia` AS
-SELECT
-  c.competencia,
-  c.produto,
-  c.custo_produto_brl,
-  m.usuarios_ativos,
-  m.contratos_ativos,
-  SAFE_DIVIDE(c.custo_produto_brl, m.usuarios_ativos)  AS custo_por_usuario,
-  SAFE_DIVIDE(c.custo_produto_brl, m.contratos_ativos) AS custo_por_contrato,
-  SAFE_DIVIDE(m.usuarios_ativos, m.contratos_ativos)   AS usuarios_por_contrato
-FROM (
-  SELECT competencia, produto, ROUND(SUM(valor_brl), 2) AS custo_produto_brl
+WITH custo_direto AS (
+  SELECT competencia, produto, ROUND(SUM(valor_brl), 2) AS custo_direto_brl
   FROM `relatorio_pt.custos`
   WHERE produto IS NOT NULL
   GROUP BY competencia, produto
-) c
+),
+custo_compartilhado AS (
+  SELECT competencia, ROUND(SUM(valor_brl), 2) AS custo_compartilhado_brl
+  FROM `relatorio_pt.custos`
+  WHERE produto = 'Compartilhado'
+  GROUP BY competencia
+),
+base_rateio AS (
+  -- Soma do custo direto dos produtos que absorvem Compartilhado
+  -- (= todos os que têm linha em metricas_negocio — hoje Faceum + Mydhas;
+  -- se AI ganhar usuários/contratos no futuro, entra automaticamente).
+  SELECT d.competencia, SUM(d.custo_direto_brl) AS custo_direto_absorventes_brl
+  FROM custo_direto d
+  WHERE EXISTS (
+    SELECT 1 FROM `relatorio_pt.metricas_negocio` m
+    WHERE m.competencia = d.competencia AND m.produto = d.produto
+  )
+  GROUP BY d.competencia
+)
+SELECT
+  d.competencia,
+  d.produto,
+  d.custo_direto_brl,
+  ROUND(
+    COALESCE(s.custo_compartilhado_brl, 0)
+      * SAFE_DIVIDE(d.custo_direto_brl, b.custo_direto_absorventes_brl),
+    2
+  ) AS custo_compartilhado_rateado_brl,
+  ROUND(
+    d.custo_direto_brl + COALESCE(s.custo_compartilhado_brl, 0)
+      * SAFE_DIVIDE(d.custo_direto_brl, b.custo_direto_absorventes_brl),
+    2
+  ) AS custo_produto_brl,
+  m.usuarios_ativos,
+  m.contratos_ativos,
+  SAFE_DIVIDE(
+    d.custo_direto_brl + COALESCE(s.custo_compartilhado_brl, 0)
+      * SAFE_DIVIDE(d.custo_direto_brl, b.custo_direto_absorventes_brl),
+    m.usuarios_ativos
+  ) AS custo_por_usuario,
+  SAFE_DIVIDE(
+    d.custo_direto_brl + COALESCE(s.custo_compartilhado_brl, 0)
+      * SAFE_DIVIDE(d.custo_direto_brl, b.custo_direto_absorventes_brl),
+    m.contratos_ativos
+  ) AS custo_por_contrato,
+  SAFE_DIVIDE(m.usuarios_ativos, m.contratos_ativos) AS usuarios_por_contrato
+FROM custo_direto d
 INNER JOIN `relatorio_pt.metricas_negocio` m
-  ON c.competencia = m.competencia AND c.produto = m.produto;
+  ON d.competencia = m.competencia AND d.produto = m.produto
+LEFT JOIN custo_compartilhado s ON s.competencia = d.competencia
+LEFT JOIN base_rateio b ON b.competencia = d.competencia;
 
 -- ============================================================================
 -- Pronto. No Looker, conecte:
