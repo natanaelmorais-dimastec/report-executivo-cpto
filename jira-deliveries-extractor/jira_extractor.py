@@ -31,7 +31,7 @@ import logging
 import os
 import sys
 from collections import defaultdict
-from datetime import date
+from datetime import date, timedelta
 
 import requests
 from dotenv import load_dotenv
@@ -77,12 +77,18 @@ log = logging.getLogger("jira_extractor")
 # --- Date helpers ------------------------------------------------------------
 
 def month_bounds(month: str) -> tuple[str, str]:
-    """Return (start, end_inclusive) ISO dates for 'YYYY-MM' for a JQL range."""
+    """Return (first_day, last_day) ISO dates of `YYYY-MM`, both inclusive.
+
+    Used to build a JQL `DURING (start, end)` window. JQL `DURING` is inclusive
+    on BOTH endpoints, so `end` must be the last day of the report month — if we
+    return the next-month-first-day instead, issues finalized on that boundary
+    day are counted in both reports (1-day overlap).
+    """
     year, mon = (int(p) for p in month.split("-"))
     start = date(year, mon, 1)
-    end = date(year + 1, 1, 1) if mon == 12 else date(year, mon + 1, 1)
-    # JQL resolved <= end-1day; use the exclusive end date and '<' in JQL instead.
-    return start.isoformat(), end.isoformat()
+    next_month_first = date(year + 1, 1, 1) if mon == 12 else date(year, mon + 1, 1)
+    end_inclusive = next_month_first - timedelta(days=1)
+    return start.isoformat(), end_inclusive.isoformat()
 
 
 # --- Jira client -------------------------------------------------------------
