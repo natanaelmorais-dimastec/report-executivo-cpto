@@ -1,0 +1,36 @@
+resource,arn,inferred_product,tags
+cloudfront/distribution/EYLVX9VKSZ0NC,arn:aws:cloudfront::295574221328:distribution/EYLVX9VKSZ0NC,Faceum,DT FACEUM DEV=DT FACEUM DEV
+cloudfront/distribution/ELZW0C93X93VS,arn:aws:cloudfront::295574221328:distribution/ELZW0C93X93VS,Faceum,product=dtfaceum; enviroment=prod
+cloudfront/distribution/E9YUL23VSK7UX,arn:aws:cloudfront::295574221328:distribution/E9YUL23VSK7UX,Mydhas,Name=mydhas-cdn-prd
+ec2/subnet/subnet-06f9e218bee7b8cc7,arn:aws:ec2:us-east-1:295574221328:subnet/subnet-06f9e218bee7b8cc7,,Name=SUBNET-DIMASTEC-QA-PUBLIC01
+ec2/subnet/subnet-0860ff3db0893c206,arn:aws:ec2:us-east-1:295574221328:subnet/subnet-0860ff3db0893c206,,Name=SUBNET-DIMASTEC-QA-PRIVATE01
+ec2/subnet/subnet-09f101e0958aa7b5c,arn:aws:ec2:us-east-1:295574221328:subnet/subnet-09f101e0958aa7b5c,,Name=SUBNET-DIMASTEC-DEV-PUBLIC01
+ec2/subnet/subnet-049687bbda4dfa5e5,arn:aws:ec2:us-east-1:295574221328:subnet/subnet-049687bbda4dfa5e5,,Name=SUBNET-DIMASTEC-QA-PRIVATE02
+ec2/vpc/vpc-00193cffee6883d98,arn:aws:ec2:us-east-1:295574221328:vpc/vpc-00193cffee6883d98,,Name=VPC-DIMASTEC-DEV
+ecs/cluster/cl-dimastec-sandbox,arn:aws:ecs:us-east-1:295574221328:cluster/cl-dimastec-sandbox,,aws:cloudformation:stack-name=Infra-ECS-Cluster-cl-dimastec-sandbox-3aa36727; aws:cloudformation:stack-id=arn:aws:cloudformation:us-east-1:295574221328:stack/Infra-ECS-Cluster-cl-dimastec-sandbox-3aa36727/f04254c0-4499-11f1-818e-0ebe04c2ca5f; aws:cloudformation:logical-id=ECSCluster
+payments/9579d1b5-7960-4c76-9ba3-3dcbbf97435e,arn:aws:payments::295574221328:payment-instrument:9579d1b5-7960-4c76-9ba3-3dcbbf97435e,,
+cloudfront/distribution/E2DC0Q9CXDLWK2,arn:aws:cloudfront::295574221328:distribution/E2DC0Q9CXDLWK2,AI,Name=SSL - DIMASTEC BRAIN
+ec2/internet-gateway/igw-02be560c7a29afdbf,arn:aws:ec2:us-east-1:295574221328:internet-gateway/igw-02be560c7a29afdbf,,Name=igw_dimastec_dev
+ec2/subnet/subnet-0119883c9eeef6df8,arn:aws:ec2:us-east-1:295574221328:subnet/subnet-0119883c9eeef6df8,,Name=SUBNET-DIMASTEC-DEV-PUBLIC02
+lambda/BasicAuthentication,arn:aws:lambda:us-east-1:295574221328:function:BasicAuthentication,,lambda-console:blueprint=cloudfront-modify-response-header
+cloudformation/stack/Infra-ECS-Cluster-cl-dimastec-sandbox-3aa36727/f04254c0-4499-11f1-818e-0ebe04c2ca5f,arn:aws:cloudformation:us-east-1:295574221328:stack/Infra-ECS-Cluster-cl-dimastec-sandbox-3aa36727/f04254c0-4499-11f1-818e-0ebe04c2ca5f,,
+cloudfront/distribution/E112CLUGE1USWF,arn:aws:cloudfront::295574221328:distribution/E112CLUGE1USWF,,Name=bucket-logs-prd
+cloudfront/distribution/E121YL17ESVSQB,arn:aws:cloudfront::295574221328:distribution/E121YL17ESVSQB,Faceum,DT FACEUM QA=DT FACEUM QA
+ec2/route-table/rtb-03b1e24dda390ca7a,arn:aws:ec2:us-east-1:295574221328:route-table/rtb-03b1e24dda390ca7a,,Name=ROUTE-TABLE-DIMASTEC-DEV
+ec2/route-table/rtb-026b8c3acbc10e4ff,arn:aws:ec2:us-east-1:295574221328:route-table/rtb-026b8c3acbc10e4ff,,Name=ROUTE-TABLE-DIMASTEC-QA
+ec2/subnet/subnet-072501feac8df834e,arn:aws:ec2:us-east-1:295574221328:subnet/subnet-072501feac8df834e,,Name=SUBNET-DIMASTEC-DEV-PRIVATE02
+ec2/subnet/subnet-0bd0377ae846f5fb1,arn:aws:ec2:us-east-1:295574221328:subnet/subnet-0bd0377ae846f5fb1,,Name=SUBNET-DIMASTEC-QA-PUBLIC02
+iam/oidc-provider/token.actions.githubusercontent.com,arn:aws:iam::295574221328:oidc-provider/token.actions.githubusercontent.com,,Purpose=github-actions-federation; Name=GitHub Actions OIDC
+lambda/BasicAuthenticationQA,arn:aws:lambda:us-east-1:295574221328:function:BasicAuthenticationQA,,lambda-console:blueprint=cloudfront-modify-response-header
+lambda/BasicAuthenticationHML,arn:aws:lambda:us-east-1:295574221328:function:BasicAuthenticationHML,,lambda-console:blueprint=cloudfront-modify-response-header
+payments/172d7884-8494-497b-b497-03106757f933,arn:aws:payments::295574221328:payment-instrument:172d7884-8494-497b-b497-03106757f933,,
+payments/ad765ea3-c0ce-4466-92c4-ab064efe78c5,arn:aws:payments::295574221328:payment-instrument:ad765ea3-c0ce-4466-92c4-ab064efe78c5,,
+cloudfront/distribution/E2PRMJKH0JGRQ5,arn:aws:cloudfront::295574221328:distribution/E2PRMJKH0JGRQ5,Mydhas,Name=mydhas-cdn-prd
+cloudfront/distribution/E1GQOT56RIRLCN,arn:aws:cloudfront::295574221328:distribution/E1GQOT56RIRLCN,Mydhas,Name=cdn-mydhas.com.br
+cloudfront/distribution/E25R7N2FXGZXTM,arn:aws:cloudfront::295574221328:distribution/E25R7N2FXGZXTM,Faceum,DT FACEUM HML=DT FACEUM HML
+ec2/internet-gateway/igw-06d6030cda9488b2b,arn:aws:ec2:us-east-1:295574221328:internet-gateway/igw-06d6030cda9488b2b,,Name=igw_dimastec_qa
+ec2/subnet/subnet-0e3529191974fa798,arn:aws:ec2:us-east-1:295574221328:subnet/subnet-0e3529191974fa798,,Name=SUBNET-DIMASTEC-DEV-PRIVATE02
+ec2/vpc/vpc-0e06e7362c4792b4b,arn:aws:ec2:us-east-1:295574221328:vpc/vpc-0e06e7362c4792b4b,,Name=VPC-DIMASTEC-QA
+lambda/BasicAuthenticationPRD,arn:aws:lambda:us-east-1:295574221328:function:BasicAuthenticationPRD,,lambda-console:blueprint=cloudfront-modify-response-header
+route53/hostedzone/Z01459171090SJMWGNRHT,arn:aws:route53:::hostedzone/Z01459171090SJMWGNRHT,Faceum,Project=microservices faceum mydhas; Environment=production
+cloudfront/distribution/E12OQA7XK4ZDCL,arn:aws:cloudfront::295574221328:distribution/E12OQA7XK4ZDCL,Mydhas,Project=mydhas-site; Owner=mydhas; ManagedBy=console; Environment=production; Name=mydhas.com.br

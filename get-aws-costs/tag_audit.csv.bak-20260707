@@ -1,0 +1,583 @@
+resource,arn,inferred_product,tags
+backup/f96da973-9fff-4198-ae4b-dbb6762bd07f,arn:aws:backup:sa-east-1:295574221328:recovery-point:f96da973-9fff-4198-ae4b-dbb6762bd07f,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/d1d5beee-a5d2-4949-86ac-248c5c846e2e,arn:aws:backup:sa-east-1:295574221328:recovery-point:d1d5beee-a5d2-4949-86ac-248c5c846e2e,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/314b1e59-17c8-4ad3-95e0-387e917a99b0,arn:aws:backup:sa-east-1:295574221328:recovery-point:314b1e59-17c8-4ad3-95e0-387e917a99b0,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/a92f74e3-bc37-4c5a-8536-7ffac0f6578a,arn:aws:backup:sa-east-1:295574221328:recovery-point:a92f74e3-bc37-4c5a-8536-7ffac0f6578a,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/c40d743d-8e12-4697-981d-9a15787fa2be,arn:aws:backup:sa-east-1:295574221328:recovery-point:c40d743d-8e12-4697-981d-9a15787fa2be,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/4c9d13a5-d48c-448f-a686-47df5e0b1146,arn:aws:backup:sa-east-1:295574221328:recovery-point:4c9d13a5-d48c-448f-a686-47df5e0b1146,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/98a418bf-67ea-4e21-a524-ef3886e92eb3,arn:aws:backup:sa-east-1:295574221328:recovery-point:98a418bf-67ea-4e21-a524-ef3886e92eb3,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/959907cd-5a5c-4b81-9afd-a683107201c2,arn:aws:backup:sa-east-1:295574221328:recovery-point:959907cd-5a5c-4b81-9afd-a683107201c2,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/54abf5bb-5169-4b32-a3cd-608ae283bc47,arn:aws:backup:sa-east-1:295574221328:recovery-point:54abf5bb-5169-4b32-a3cd-608ae283bc47,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/8677d70a-550f-4931-9eb0-d6a4b4a850be,arn:aws:backup:sa-east-1:295574221328:recovery-point:8677d70a-550f-4931-9eb0-d6a4b4a850be,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/2c7f623b-8716-4de8-bd84-761944173e27,arn:aws:backup:sa-east-1:295574221328:recovery-point:2c7f623b-8716-4de8-bd84-761944173e27,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/5ed6bc24-5a9b-4cf1-aa77-51e01c851301,arn:aws:backup:sa-east-1:295574221328:recovery-point:5ed6bc24-5a9b-4cf1-aa77-51e01c851301,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+cloudformation/da8f18cc-628c-42f2-b442-ae7d6bf4604d,arn:aws:cloudformation:sa-east-1:295574221328:stackset/AWS-QuickSetup-SSMHostMgmt-LA-lg5ie:da8f18cc-628c-42f2-b442-ae7d6bf4604d,,QuickSetupType=Host Management; QuickSetupVersion=2.2; QuickSetupID=lg5ie
+cloudwatch/TargetTracking-service/cl-mydhas-prod/svc-mydhas-api-service-AlarmLow-5ff76596-8a2b-472a-8634-0b5f75f8d18f,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-mydhas-prod/svc-mydhas-api-service-AlarmLow-5ff76596-8a2b-472a-8634-0b5f75f8d18f,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-web-AlarmHigh-b37f1d16-18e1-40b5-be8e-62b9e7b4e296,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-web-AlarmHigh-b37f1d16-18e1-40b5-be8e-62b9e7b4e296,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-backoffice-AlarmHigh-05d253c1-a3e4-41ba-a32d-92b54b5f24b0,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-backoffice-AlarmHigh-05d253c1-a3e4-41ba-a32d-92b54b5f24b0,,
+codebuild/project/api-faceum-prod,arn:aws:codebuild:sa-east-1:295574221328:project/api-faceum-prod,Faceum,environment=production; product=dtfaceum
+codebuild/project/cp-faceum-backoffice-codepipeline,arn:aws:codebuild:sa-east-1:295574221328:project/cp-faceum-backoffice-codepipeline,Faceum,environment=production; product=dtfaceum; CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=cp-faceum-backoffice-codepipeline
+codebuild/project/cp-faceum-web-codepipeline-prod,arn:aws:codebuild:sa-east-1:295574221328:project/cp-faceum-web-codepipeline-prod,Faceum,environment=production; product=dtfaceum
+dynamodb/table/dev_log_actions_10248,arn:aws:dynamodb:sa-east-1:295574221328:table/dev_log_actions_10248,Faceum,DT FACEUM DEV=DT FACEUM DEV
+dynamodb/table/dev_log_actions_10057,arn:aws:dynamodb:sa-east-1:295574221328:table/dev_log_actions_10057,Faceum,DT FACEUM DEV=DT FACEUM DEV
+dynamodb/table/dev_log_actions_10091,arn:aws:dynamodb:sa-east-1:295574221328:table/dev_log_actions_10091,Faceum,DT FACEUM DEV=DT FACEUM DEV
+dynamodb/table/qa_log_actions_10009,arn:aws:dynamodb:sa-east-1:295574221328:table/qa_log_actions_10009,Faceum,DT FACEUM HML=DT FACEUM HML
+dynamodb/table/dev_log_actions_10019,arn:aws:dynamodb:sa-east-1:295574221328:table/dev_log_actions_10019,Faceum,DT FACEUM DEV=DT FACEUM DEV
+ec2/elastic-ip/eipalloc-04dc8c767a137c891,arn:aws:ec2:sa-east-1:295574221328:elastic-ip/eipalloc-04dc8c767a137c891,,Name=Jenkins
+ec2/elastic-ip/eipalloc-0868fbafd3c2164e8,arn:aws:ec2:sa-east-1:295574221328:elastic-ip/eipalloc-0868fbafd3c2164e8,,Name=Dimastec-NIFI
+ec2/elastic-ip/eipalloc-035552ae4e5b49097,arn:aws:ec2:sa-east-1:295574221328:elastic-ip/eipalloc-035552ae4e5b49097,,Name=mkt-integration
+ec2/image/ami-098796bfc4b1dbc45,arn:aws:ec2:sa-east-1:295574221328:image/ami-098796bfc4b1dbc45,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:FB844622-5CDE-54C2-1E06-56D2D3C8CFA8; Name=DIMASTEC-NIFI
+ec2/image/ami-0ab6c8d68e2346453,arn:aws:ec2:sa-east-1:295574221328:image/ami-0ab6c8d68e2346453,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:FE69F94E-26BA-D9C2-AC95-C1588612DD72; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-063e7755029dedb21,arn:aws:ec2:sa-east-1:295574221328:image/ami-063e7755029dedb21,,Name=BACKUP_DIMASTEC-APP-PRD
+ec2/image/ami-09f902c2e85ad7bd7,arn:aws:ec2:sa-east-1:295574221328:image/ami-09f902c2e85ad7bd7,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:948A40FD-E35D-0E4B-55EF-25BEE20A9470; Name=DIMASTEC-NIFI
+ec2/image/ami-0e95454a4081b86ea,arn:aws:ec2:sa-east-1:295574221328:image/ami-0e95454a4081b86ea,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:AC5DDF6A-8B8C-0557-4A21-DF9180CE86A7; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-0165b6e7e9a967304,arn:aws:ec2:sa-east-1:295574221328:image/ami-0165b6e7e9a967304,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:471853EB-CFDE-FDA8-5CF1-F2ACE8B758B6; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-0cd4863b4b4076093,arn:aws:ec2:sa-east-1:295574221328:image/ami-0cd4863b4b4076093,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:5227A991-B6CF-DFBE-BD90-2E4917AC0055; Name=DIMASTEC-NIFI
+ec2/image/ami-071c6f6eefe0ff794,arn:aws:ec2:sa-east-1:295574221328:image/ami-071c6f6eefe0ff794,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:F96FAD87-23F6-B0F0-79AA-EEC76CF52B37; Name=DIMASTEC-NIFI
+ec2/instance/i-0a3b9c6643d002f76,arn:aws:ec2:sa-east-1:295574221328:instance/i-0a3b9c6643d002f76,AI,environment=production; Name=brainCompany-chatbot
+ec2/internet-gateway/igw-0c4391c10218dc339,arn:aws:ec2:sa-east-1:295574221328:internet-gateway/igw-0c4391c10218dc339,,Name=IGW-DIMASTEC-PRD
+ec2/internet-gateway/igw-0a0842627d2c2799b,arn:aws:ec2:sa-east-1:295574221328:internet-gateway/igw-0a0842627d2c2799b,,Name=IGW-DIMASTEC-QA
+ec2/network-interface/eni-0dfcb7afda85c73ff,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-0dfcb7afda85c73ff,Faceum,aws:ecs:serviceName=svc-faceum-backoffice; aws:ecs:clusterName=cl-dimastec-prod
+ec2/route-table/rtb-03e38d8fcb821cef5,arn:aws:ec2:sa-east-1:295574221328:route-table/rtb-03e38d8fcb821cef5,,Name=RTB-DIMASTEC-PRD-Private-2
+ec2/route-table/rtb-0c5742183632a788b,arn:aws:ec2:sa-east-1:295574221328:route-table/rtb-0c5742183632a788b,,Name=RTB-DIMASTEC-DEV
+ec2/security-group/sg-097e3b034c421c6d6,arn:aws:ec2:sa-east-1:295574221328:security-group/sg-097e3b034c421c6d6,,Name=sg_dimastec_hml_default
+ec2/security-group-rule/sgr-0864e9eb61fc2fd2f,arn:aws:ec2:sa-east-1:295574221328:security-group-rule/sgr-0864e9eb61fc2fd2f,,Name=Allow Traffic from ALB PRD
+ec2/snapshot/snap-0da2607594f007b5c,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0da2607594f007b5c,,aws:backup:source-resource=i-0eb1217327a4929fb:D76094B0-0D05-5DC8-A24A-265AF94E8C3D
+ec2/snapshot/snap-0bea4b19759ca96bd,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0bea4b19759ca96bd,,aws:backup:source-resource=i-000395576302614b4:6305A66D-0C7F-8B54-9989-0811DDBA22B0
+ec2/snapshot/snap-073152e8e3dccb112,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-073152e8e3dccb112,,aws:backup:source-resource=i-0eb1217327a4929fb:D6935BD7-6FF4-B7FC-F640-E6CBE3B1EF3E
+ec2/snapshot/snap-034f60bbdcda3ec92,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-034f60bbdcda3ec92,,aws:backup:source-resource=i-000395576302614b4:948A40FD-E35D-0E4B-55EF-25BEE20A9470
+ec2/snapshot/snap-07b0baa875eef26a9,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-07b0baa875eef26a9,,aws:backup:source-resource=i-000395576302614b4:FB844622-5CDE-54C2-1E06-56D2D3C8CFA8
+ec2/subnet/subnet-0b2d82cc39efa6c3e,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0b2d82cc39efa6c3e,,Name=SUBNET-DIMASTEC-PRD-PUBLIC-2
+ec2/subnet/subnet-0b09eb55462c2fb60,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0b09eb55462c2fb60,,Name=SUBNET-DIMASTEC-QA-PRIVATE02
+ec2/subnet/subnet-025088d3a64a6193e,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-025088d3a64a6193e,,Name=SUBNET-DIMASTEC-HML-PUBLIC01
+ec2/subnet/subnet-04c1fbdc6ac88d1bd,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-04c1fbdc6ac88d1bd,,Name=SUBNET-DIMASTEC-QA-PUBLIC01
+ec2/vpc/vpc-0f843742b8cb111ee,arn:aws:ec2:sa-east-1:295574221328:vpc/vpc-0f843742b8cb111ee,,Name=VPC-DIMASTEC-PROD
+ecs/cluster/cl-mydhas-prod,arn:aws:ecs:sa-east-1:295574221328:cluster/cl-mydhas-prod,Mydhas,aws:cloudformation:stack-name=Infra-ECS-Cluster-cl-mydhas-prod-7284d54c; environment=production; product=mydhas; aws:cloudformation:stack-id=arn:aws:cloudformation:sa-east-1:295574221328:stack/Infra-ECS-Cluster-cl-mydhas-prod-7284d54c/b2690eb0-745f-11f0-9245-0674d369be5f; aws:cloudformation:logical-id=ECSCluster
+ecs/service/cl-dimastec-prod/svc-faceum-web,arn:aws:ecs:sa-east-1:295574221328:service/cl-dimastec-prod/svc-faceum-web,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=svc-faceum-web
+ecs/service/cl-dimastec-prod/svc-faceum-cronjob,arn:aws:ecs:sa-east-1:295574221328:service/cl-dimastec-prod/svc-faceum-cronjob,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=svc-faceum-cronjob
+ecs/task/cl-dimastec-prod/d6477bd448084204bc4f67c9586175e7,arn:aws:ecs:sa-east-1:295574221328:task/cl-dimastec-prod/d6477bd448084204bc4f67c9586175e7,Faceum,aws:ecs:serviceName=svc-faceum-api; aws:ecs:clusterName=cl-dimastec-prod
+ecs/task/cl-dimastec-prod/7a76a8dbf12c4ff3aa8aea3a1a2ae573,arn:aws:ecs:sa-east-1:295574221328:task/cl-dimastec-prod/7a76a8dbf12c4ff3aa8aea3a1a2ae573,Faceum,aws:ecs:serviceName=svc-faceum-web; aws:ecs:clusterName=cl-dimastec-prod
+ecs/task/cl-dimastec-prod/d79c4aacfe8446aaba0a11ddbcebce8d,arn:aws:ecs:sa-east-1:295574221328:task/cl-dimastec-prod/d79c4aacfe8446aaba0a11ddbcebce8d,Faceum,aws:ecs:serviceName=svc-faceum-reports-api; aws:ecs:clusterName=cl-dimastec-prod
+ecs/34,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:34,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/14,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:14,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/21,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:21,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/53,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:53,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/38,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:38,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/22,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:22,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/6,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:6,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/50,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:50,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/8,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:8,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/9,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:9,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/19,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:19,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/19,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:19,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/3,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:3,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/33,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:33,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/28,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:28,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/42,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:42,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/18,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:18,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/63,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:63,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/46,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:46,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/33,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:33,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/16,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:16,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/8,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:8,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/70,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:70,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/15,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:15,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/29,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:29,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/1,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:1,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/15,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:15,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/28,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:28,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/28,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:28,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/56,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:56,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/32,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:32,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/7,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:7,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/43,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:43,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/29,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:29,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/1,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:1,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/3,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:3,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/14,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:14,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/6,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:6,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/18,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:18,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/10,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:10,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/19,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:19,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/6,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:6,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/65,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:65,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/26,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:26,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/14,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:14,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/71,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:71,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/25,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:25,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/15,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:15,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/11,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:11,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/49,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:49,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/4,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:4,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/26,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:26,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/9,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:9,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/12,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:12,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/23,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:23,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/9,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:9,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/64,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:64,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/47,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:47,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/7,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:7,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/29,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:29,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/25,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:25,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/34,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:34,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+elasticache/redis-prd-airflow-001,arn:aws:elasticache:sa-east-1:295574221328:cluster:redis-prd-airflow-001,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticache/redis-dtfaceum-prd-001,arn:aws:elasticache:sa-east-1:295574221328:cluster:redis-dtfaceum-prd-001,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/redis-dtfaceum-prd,arn:aws:elasticache:sa-east-1:295574221328:replicationgroup:redis-dtfaceum-prd,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/redis-prd-mydhas,arn:aws:elasticache:sa-east-1:295574221328:replicationgroup:redis-prd-mydhas,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-prd-mydhas-001-2026-05-24-03-04,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-mydhas-001-2026-05-24-03-04,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-prd-airflow-001-2026-05-27-03-03,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-airflow-001-2026-05-27-03-03,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticache/automatic.redis-prd-mydhas-001-2026-05-22-03-05,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-mydhas-001-2026-05-22-03-05,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-dtfaceum-prd-002-2026-05-25-04-00,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-dtfaceum-prd-002-2026-05-25-04-00,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/automatic.redis-prd-airflow-001-2026-05-25-03-04,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-airflow-001-2026-05-25-03-04,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticfilesystem/access-point/fsap-03a6a1d19e1e33809,arn:aws:elasticfilesystem:sa-east-1:295574221328:access-point/fsap-03a6a1d19e1e33809,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efsap-faceum-grafana
+elasticloadbalancing/listener-rule/app/dimastec-prod-alb-prod/9b053918a1639877/9fcf75560a6c6d5c/c457b450b717163f,arn:aws:elasticloadbalancing:sa-east-1:295574221328:listener-rule/app/dimastec-prod-alb-prod/9b053918a1639877/9fcf75560a6c6d5c/c457b450b717163f,Faceum,Name=faceum-api
+elasticloadbalancing/listener-rule/app/dimastec-prod-alb-prod/9b053918a1639877/9fcf75560a6c6d5c/1cce23f65eb059c1,arn:aws:elasticloadbalancing:sa-east-1:295574221328:listener-rule/app/dimastec-prod-alb-prod/9b053918a1639877/9fcf75560a6c6d5c/1cce23f65eb059c1,,Name=backoffice-api
+elasticloadbalancing/listener/app/dimastec-prod-alb-prod/9b053918a1639877/bc658fa32a48cf18,arn:aws:elasticloadbalancing:sa-east-1:295574221328:listener/app/dimastec-prod-alb-prod/9b053918a1639877/bc658fa32a48cf18,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=lst-faceum-kong-HTTP-8002
+elasticloadbalancing/loadbalancer/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac,arn:aws:elasticloadbalancing:sa-east-1:295574221328:loadbalancer/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac,,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=lb-internal-dimastec-prod-alb-prod
+elasticloadbalancing/targetgroup/tg-faceum-reports-api-prod/6b0295d5f5eac7d2,arn:aws:elasticloadbalancing:sa-east-1:295574221328:targetgroup/tg-faceum-reports-api-prod/6b0295d5f5eac7d2,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tg-faceum-reports-api-prod
+events/rule/start_rds_dimastec-db-dev,arn:aws:events:sa-east-1:295574221328:rule/start_rds_dimastec-db-dev,,
+events/rule/stop_rds_dimastec-db-hml,arn:aws:events:sa-east-1:295574221328:rule/stop_rds_dimastec-db-hml,,
+events/rule/stop_ec2_i-0eb1217327a4929fb,arn:aws:events:sa-east-1:295574221328:rule/stop_ec2_i-0eb1217327a4929fb,,
+events/rule/start_jenkins-ec2,arn:aws:events:sa-east-1:295574221328:rule/start_jenkins-ec2,,
+events/rule/stop_ec2_pm,arn:aws:events:sa-east-1:295574221328:rule/stop_ec2_pm,,
+events/rule/start_ec2_i-072374ffe387c7452,arn:aws:events:sa-east-1:295574221328:rule/start_ec2_i-072374ffe387c7452,,
+events/rule/stop_rds_dimastec-db-dev-new,arn:aws:events:sa-east-1:295574221328:rule/stop_rds_dimastec-db-dev-new,,
+logs/cl-dimastec-prod-faceum-authentication-api,arn:aws:logs:sa-east-1:295574221328:log-group:cl-dimastec-prod-faceum-authentication-api,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=cl-dimastec-prod-faceum-authentication-api
+logs/cl-dimastec-prod-faceum-kong,arn:aws:logs:sa-east-1:295574221328:log-group:cl-dimastec-prod-faceum-kong,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=cl-dimastec-prod-faceum-kong
+logs/cl-dimastec-prod-faceum-grafana,arn:aws:logs:sa-east-1:295574221328:log-group:cl-dimastec-prod-faceum-grafana,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=cl-dimastec-prod-faceum-grafana
+logs/cl-dimastec-prod-faceum-cronjob,arn:aws:logs:sa-east-1:295574221328:log-group:cl-dimastec-prod-faceum-cronjob,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=cl-dimastec-prod-faceum-cronjob
+rds/dtfaceumdb-bi,arn:aws:rds:sa-east-1:295574221328:db:dtfaceumdb-bi,Faceum,environment=production; product=dtfaceum
+rds/dimastec-db-dtconnect-2026-05-22-05-24,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-dtconnect-2026-05-22-05-24,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+rds/dimastec-db-hml-snapshot,arn:aws:rds:sa-east-1:295574221328:snapshot:dimastec-db-hml-snapshot,,Ambiente=Dev
+rds/dimastec-db-dtconnect-2026-05-27-05-24,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-dtconnect-2026-05-27-05-24,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+rds/dimastec-db-prd-2026-05-26-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-26-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-prd-2026-05-13-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-13-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-mydhas-2026-05-28-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-28-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-prd-2026-05-15-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-15-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-dtconnect-2026-05-26-05-24,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-dtconnect-2026-05-26-05-24,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+rds/dimastec-db-prd-2026-05-28-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-28-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-mydhas-2026-05-22-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-22-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-prd-2026-05-21-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-21-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+s3/bucket-295574221328-faceum-backoffice-codepipeline-sa-east-1,arn:aws:s3:::bucket-295574221328-faceum-backoffice-codepipeline-sa-east-1,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=bucket-295574221328-faceum-backoffice-codepipeline-sa-east-1
+s3/bucket-dtfaceum-boletim,arn:aws:s3:::bucket-dtfaceum-boletim,,S3 Boletim=
+s3/bucket-295574221328-faceum-web-codepipeline-sa-east-1,arn:aws:s3:::bucket-295574221328-faceum-web-codepipeline-sa-east-1,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=bucket-295574221328-faceum-web-codepipeline-sa-east-1
+servicediscovery/namespace/ns-4shzad54kfrlkce4,arn:aws:servicediscovery:sa-east-1:295574221328:namespace/ns-4shzad54kfrlkce4,,AmazonECSManaged=true
+servicediscovery/namespace/ns-vk4fbtqkbrgel5ut,arn:aws:servicediscovery:sa-east-1:295574221328:namespace/ns-vk4fbtqkbrgel5ut,,AmazonECSManaged=true
+servicediscovery/namespace/ns-wpb7lt6z5a555iz3,arn:aws:servicediscovery:sa-east-1:295574221328:namespace/ns-wpb7lt6z5a555iz3,,AmazonECSManaged=true
+ssm/document/AWSQuickSetup-CreateAndAttachIAMToInstance-lg5ie,arn:aws:ssm:sa-east-1:295574221328:document/AWSQuickSetup-CreateAndAttachIAMToInstance-lg5ie,,QuickSetupType=Host Management; QuickSetupVersion=2.2; QuickSetupID=lg5ie
+backup/478ceee5-03be-4bbd-9bdc-a24e8e3d82f8,arn:aws:backup:sa-east-1:295574221328:recovery-point:478ceee5-03be-4bbd-9bdc-a24e8e3d82f8,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/b78be7aa-acb2-4da9-b1cb-17e849a6c378,arn:aws:backup:sa-east-1:295574221328:recovery-point:b78be7aa-acb2-4da9-b1cb-17e849a6c378,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/125aa4e3-c9c4-4a09-9fe8-4d904baeeec1,arn:aws:backup:sa-east-1:295574221328:recovery-point:125aa4e3-c9c4-4a09-9fe8-4d904baeeec1,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/de02551a-f41d-448c-8d0b-73a474adbf70,arn:aws:backup:sa-east-1:295574221328:recovery-point:de02551a-f41d-448c-8d0b-73a474adbf70,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/1000d3d1-318d-42d2-ad2d-a8a04d26dd13,arn:aws:backup:sa-east-1:295574221328:recovery-point:1000d3d1-318d-42d2-ad2d-a8a04d26dd13,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/5eb5069a-4a91-4f80-9e67-f530d2890a0e,arn:aws:backup:sa-east-1:295574221328:recovery-point:5eb5069a-4a91-4f80-9e67-f530d2890a0e,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/24c54f6d-34df-437b-a87c-83f58fb51afe,arn:aws:backup:sa-east-1:295574221328:recovery-point:24c54f6d-34df-437b-a87c-83f58fb51afe,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/ad8d0392-7cd9-4d8c-b2ec-29ea5ddfd2ee,arn:aws:backup:sa-east-1:295574221328:recovery-point:ad8d0392-7cd9-4d8c-b2ec-29ea5ddfd2ee,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/bcfb4e8f-7dd7-4faa-ba2c-63932575fba3,arn:aws:backup:sa-east-1:295574221328:recovery-point:bcfb4e8f-7dd7-4faa-ba2c-63932575fba3,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/5c789403-2235-4abc-822b-8a9cdd602547,arn:aws:backup:sa-east-1:295574221328:recovery-point:5c789403-2235-4abc-822b-8a9cdd602547,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/d3cf8c9c-be02-47e5-a07e-ee2b856f327d,arn:aws:backup:sa-east-1:295574221328:recovery-point:d3cf8c9c-be02-47e5-a07e-ee2b856f327d,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-backoffice-AlarmLow-7bda64fe-ebc0-4c20-9d94-731c0de56f96,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-backoffice-AlarmLow-7bda64fe-ebc0-4c20-9d94-731c0de56f96,,
+cloudwatch/awsec2-i-0eb1217327a4929fb-GreaterThanOrEqualToThreshold-CPUUtilization,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:awsec2-i-0eb1217327a4929fb-GreaterThanOrEqualToThreshold-CPUUtilization,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-reports-api-AlarmHigh-f9ea0415-42e3-47d6-a63a-4985b27caf7f,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-reports-api-AlarmHigh-f9ea0415-42e3-47d6-a63a-4985b27caf7f,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-web-AlarmLow-38c99ffe-3f44-4402-95d4-e88105c367c5,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-web-AlarmLow-38c99ffe-3f44-4402-95d4-e88105c367c5,,
+codebuild/project/reports-api-faceum-prod,arn:aws:codebuild:sa-east-1:295574221328:project/reports-api-faceum-prod,Faceum,environment=production; product=dtfaceum
+codebuild/project/backoffice-faceum-prod,arn:aws:codebuild:sa-east-1:295574221328:project/backoffice-faceum-prod,Faceum,environment=production; product=dtfaceum
+codebuild/project/cp-faceum-reports-api-codepipeline-prod,arn:aws:codebuild:sa-east-1:295574221328:project/cp-faceum-reports-api-codepipeline-prod,Faceum,environment=production; product=dtfaceum; CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=cp-faceum-reports-api-codepipeline-prod
+codepipeline/cp-faceum-reports-api-codepipeline-prod,arn:aws:codepipeline:sa-east-1:295574221328:cp-faceum-reports-api-codepipeline-prod,Faceum,environment=production; product=dtfaceum
+codepipeline/cp-faceum-api-codepipeline-prod,arn:aws:codepipeline:sa-east-1:295574221328:cp-faceum-api-codepipeline-prod,Faceum,environment=production; product=dtfaceum
+dynamodb/table/dev_log_actions_10009,arn:aws:dynamodb:sa-east-1:295574221328:table/dev_log_actions_10009,Faceum,DT FACEUM DEV=DT FACEUM DEV
+ec2/image/ami-03664c7542488c3ba,arn:aws:ec2:sa-east-1:295574221328:image/ami-03664c7542488c3ba,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:6305A66D-0C7F-8B54-9989-0811DDBA22B0; Name=DIMASTEC-NIFI
+ec2/image/ami-0aba20f418c0af5d8,arn:aws:ec2:sa-east-1:295574221328:image/ami-0aba20f418c0af5d8,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:4D2DDDF3-2444-CA35-8C95-4093B2738C4B; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-02fb999f2ff87747a,arn:aws:ec2:sa-east-1:295574221328:image/ami-02fb999f2ff87747a,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:C354EE15-30B5-365A-6668-5A48FFA62C32; Name=DIMASTEC-NIFI
+ec2/image/ami-091975493f222f2e3,arn:aws:ec2:sa-east-1:295574221328:image/ami-091975493f222f2e3,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:3A053AA9-5D77-92DA-81F3-27BDBAC6258E; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-0dbb519a575b9d1ec,arn:aws:ec2:sa-east-1:295574221328:image/ami-0dbb519a575b9d1ec,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:2FFC1628-9D2D-1515-6A01-8D4DDC0D471F; Name=DIMASTEC-NIFI
+ec2/image/ami-0dd4f088bb26f6627,arn:aws:ec2:sa-east-1:295574221328:image/ami-0dd4f088bb26f6627,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:E7754903-1F45-CC4B-7862-8312204645CC; Name=DIMASTEC-NIFI
+ec2/image/ami-022d9e83a0257a52c,arn:aws:ec2:sa-east-1:295574221328:image/ami-022d9e83a0257a52c,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:06542BBC-E209-5C8B-54DA-5F93D923F5AC; Name=DIMASTEC-NIFI
+ec2/image/ami-01731f96759c2dcfb,arn:aws:ec2:sa-east-1:295574221328:image/ami-01731f96759c2dcfb,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:DA26D400-F588-7998-2E3B-FD826198FB9C; Name=DIMASTEC-NIFI
+ec2/instance/i-0a7a5f7386201a0a2,arn:aws:ec2:sa-east-1:295574221328:instance/i-0a7a5f7386201a0a2,,Name=epi-monitoring
+ec2/instance/i-071a90dc6edad6ca6,arn:aws:ec2:sa-east-1:295574221328:instance/i-071a90dc6edad6ca6,,Name=JENKINS-SERVER
+ec2/internet-gateway/igw-018c4f72c5f285227,arn:aws:ec2:sa-east-1:295574221328:internet-gateway/igw-018c4f72c5f285227,,Name=IGW-DIMASTEC-DEV
+ec2/internet-gateway/igw-0e5a3cb7d06c24acf,arn:aws:ec2:sa-east-1:295574221328:internet-gateway/igw-0e5a3cb7d06c24acf,,Name=IGW-DIMASTEC-HML
+ec2/network-interface/eni-0305cdedf974faacd,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-0305cdedf974faacd,Faceum,aws:ecs:serviceName=svc-faceum-reports-api; aws:ecs:clusterName=cl-dimastec-prod
+ec2/security-group/sg-0259c8731d20e4de3,arn:aws:ec2:sa-east-1:295574221328:security-group/sg-0259c8731d20e4de3,AI,Name=SG-DIMASTEC_BRAIN_INTERNAL
+ec2/security-group-rule/sgr-00db566a9f9d5a655,arn:aws:ec2:sa-east-1:295574221328:security-group-rule/sgr-00db566a9f9d5a655,,Name=SG-chatbot
+ec2/snapshot/snap-0e33df49a727e34aa,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0e33df49a727e34aa,,aws:backup:source-resource=i-000395576302614b4:AD8C3EE1-2955-D903-1ADE-B0DA63BF1D40
+ec2/snapshot/snap-09feab664074add83,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-09feab664074add83,,aws:backup:source-resource=i-0eb1217327a4929fb:A70C9507-0C0D-3A39-E949-38F3673584AE
+ec2/snapshot/snap-0c60aeab7a17c9316,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0c60aeab7a17c9316,,aws:backup:source-resource=i-000395576302614b4:C354EE15-30B5-365A-6668-5A48FFA62C32
+ec2/snapshot/snap-08ec9b2c73c14a0c3,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-08ec9b2c73c14a0c3,,aws:backup:source-resource=i-000395576302614b4:E7754903-1F45-CC4B-7862-8312204645CC
+ec2/snapshot/snap-0cb536d4f1c97c05f,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0cb536d4f1c97c05f,,aws:backup:source-resource=i-0eb1217327a4929fb:CF4EBBF5-EA53-BC49-5E89-5A7E255FD3EC
+ec2/subnet/subnet-0bf46612ea8b72598,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0bf46612ea8b72598,,Name=SUBNET-DIMASTEC-HML-PRIVATE01
+ec2/subnet/subnet-072100faf593abafb,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-072100faf593abafb,,Name=SUBNET-DIMASTEC-HML-PRIVATE02
+ec2/subnet/subnet-0a7fa45133af8e2c4,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0a7fa45133af8e2c4,,Name=SUBNET-DIMASTEC-PRD-PRIVATE-1
+ec2/subnet/subnet-0800def6fce626e1a,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0800def6fce626e1a,,Name=SUBNET-DIMASTEC-DEV-PUBLIC02
+ec2/subnet/subnet-0a66382d681526908,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0a66382d681526908,,Name=SUBNET-DIMASTEC-DEV-PUBLIC01
+ec2/vpc/vpc-0f23e42ff4b31a147,arn:aws:ec2:sa-east-1:295574221328:vpc/vpc-0f23e42ff4b31a147,,Name=VPC-DIMASTEC-QA
+ec2/vpc/vpc-06fc8c9794a4214ba,arn:aws:ec2:sa-east-1:295574221328:vpc/vpc-06fc8c9794a4214ba,,Name=VPC-DIMASTEC-DEV
+ec2/vpc-peering-connection/pcx-04a44373963ce9f64,arn:aws:ec2:sa-east-1:295574221328:vpc-peering-connection/pcx-04a44373963ce9f64,Mydhas,Name=Mogo Atlas Mydhas PROD
+ecs/cluster/cl-finance-report-jobs,arn:aws:ecs:sa-east-1:295574221328:cluster/cl-finance-report-jobs,,aws:cloudformation:stack-name=Infra-ECS-Cluster-cl-finance-report-jobs-5328e6c3; environment=production; product=finance-report; aws:cloudformation:stack-id=arn:aws:cloudformation:sa-east-1:295574221328:stack/Infra-ECS-Cluster-cl-finance-report-jobs-5328e6c3/a0c72b60-d1f7-11f0-9f8f-027a5755f95f; aws:cloudformation:logical-id=ECSCluster
+ecs/cluster/cl-dimastec-prod,arn:aws:ecs:sa-east-1:295574221328:cluster/cl-dimastec-prod,Faceum,aws:cloudformation:stack-name=Infra-ECS-Cluster-cl-dimastec-prod-8822a9ea; environment=production; product=dtfaceum; aws:cloudformation:stack-id=arn:aws:cloudformation:sa-east-1:295574221328:stack/Infra-ECS-Cluster-cl-dimastec-prod-8822a9ea/3cef0a50-e7aa-11ef-8f87-02f9463fb70f; CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; aws:cloudformation:logical-id=ECSCluster; Name=cl-dimastec-prod
+ecs/service/cl-dimastec-prod/svc-faceum-reports-api,arn:aws:ecs:sa-east-1:295574221328:service/cl-dimastec-prod/svc-faceum-reports-api,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=svc-faceum-reports-api
+ecs/service/cl-dimastec-prod/svc-faceum-authentication-api,arn:aws:ecs:sa-east-1:295574221328:service/cl-dimastec-prod/svc-faceum-authentication-api,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=svc-faceum-authentication-api
+ecs/task/cl-dimastec-prod/e4b8dafa83404b4cad63dd8c90b0ccff,arn:aws:ecs:sa-east-1:295574221328:task/cl-dimastec-prod/e4b8dafa83404b4cad63dd8c90b0ccff,Faceum,aws:ecs:serviceName=svc-faceum-backoffice; aws:ecs:clusterName=cl-dimastec-prod
+ecs/task/cl-mydhas-prod/b75b5102004a4042b7cd16a6dc6154cf,arn:aws:ecs:sa-east-1:295574221328:task/cl-mydhas-prod/b75b5102004a4042b7cd16a6dc6154cf,Mydhas,aws:ecs:serviceName=svc-mydhas-web-service; aws:ecs:clusterName=cl-mydhas-prod
+ecs/task/cl-dimastec-prod/f2c22596264347a5ac527800a5aa1369,arn:aws:ecs:sa-east-1:295574221328:task/cl-dimastec-prod/f2c22596264347a5ac527800a5aa1369,Faceum,aws:ecs:serviceName=svc-faceum-cronjob; aws:ecs:clusterName=cl-dimastec-prod
+ecs/35,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:35,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/33,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:33,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/22,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:22,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/13,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:13,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/30,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:30,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/18,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:18,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/3,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-kong:3,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-kong
+ecs/5,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:5,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/1,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:1,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/6,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:6,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/7,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:7,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/40,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:40,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/20,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:20,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/31,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:31,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/10,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:10,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/2,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:2,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/10,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:10,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/4,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:4,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/60,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:60,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/11,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:11,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/2,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:2,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/16,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:16,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/19,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:19,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/24,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:24,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/23,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:23,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/20,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:20,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/12,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:12,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/27,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:27,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/25,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:25,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/10,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:10,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/41,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:41,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/23,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:23,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/51,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:51,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/2,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:2,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/30,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:30,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/29,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:29,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/55,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:55,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/14,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:14,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/19,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:19,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/17,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:17,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/30,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:30,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/15,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:15,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/31,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:31,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/1,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:1,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/8,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:8,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/46,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:46,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/7,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:7,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/73,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:73,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/24,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:24,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/10,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:10,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/5,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:5,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/36,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:36,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/45,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:45,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/16,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:16,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/54,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:54,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/22,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:22,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/34,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:34,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+elasticache/redis-dtfaceum-prd-002,arn:aws:elasticache:sa-east-1:295574221328:cluster:redis-dtfaceum-prd-002,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/redis-dtfaceum-prd-003,arn:aws:elasticache:sa-east-1:295574221328:cluster:redis-dtfaceum-prd-003,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/redis-dtfaceum-prd-004,arn:aws:elasticache:sa-east-1:295574221328:cluster:redis-dtfaceum-prd-004,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/redis-prd-airflow,arn:aws:elasticache:sa-east-1:295574221328:replicationgroup:redis-prd-airflow,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticache/automatic.redis-dtfaceum-prd-002-2026-05-23-04-00,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-dtfaceum-prd-002-2026-05-23-04-00,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticfilesystem/file-system/fs-08dedd148b13c35c8,arn:aws:elasticfilesystem:sa-east-1:295574221328:file-system/fs-08dedd148b13c35c8,Faceum,aws:elasticfilesystem:default-backup=enabled; CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+elasticloadbalancing/listener/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac/832d9c12372932c2,arn:aws:elasticloadbalancing:sa-east-1:295574221328:listener/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac/832d9c12372932c2,,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=lst-HTTP-8081
+elasticloadbalancing/loadbalancer/app/dimastec-airflow-alb-prd/c72de4b07d528e40,arn:aws:elasticloadbalancing:sa-east-1:295574221328:loadbalancer/app/dimastec-airflow-alb-prd/c72de4b07d528e40,AI,LB Airflow=LB Airflow
+elasticloadbalancing/targetgroup/tg-faceum-backoffice-prod/02e25b08792aeb9e,arn:aws:elasticloadbalancing:sa-east-1:295574221328:targetgroup/tg-faceum-backoffice-prod/02e25b08792aeb9e,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tg-faceum-backoffice-prod
+elasticloadbalancing/targetgroup/tg-authentication-api-prod/62f7269175b9216f,arn:aws:elasticloadbalancing:sa-east-1:295574221328:targetgroup/tg-authentication-api-prod/62f7269175b9216f,,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tg-authentication-api-prod
+elasticloadbalancing/targetgroup/tg-faceum-kong-consumer-prod/12b35f62b4080ad3,arn:aws:elasticloadbalancing:sa-east-1:295574221328:targetgroup/tg-faceum-kong-consumer-prod/12b35f62b4080ad3,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tg-faceum-kong-consumer-prod
+elasticloadbalancing/targetgroup/tg-faceum-kong-gui-prod/152ceae72d7c67aa,arn:aws:elasticloadbalancing:sa-east-1:295574221328:targetgroup/tg-faceum-kong-gui-prod/152ceae72d7c67aa,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tg-faceum-kong-gui-prod
+events/rule/start_ec2_i-0eb1217327a4929fb,arn:aws:events:sa-east-1:295574221328:rule/start_ec2_i-0eb1217327a4929fb,,
+events/rule/ecs-managed-capacity-provider-rule,arn:aws:events:sa-east-1:295574221328:rule/ecs-managed-capacity-provider-rule,,
+rds/dimastec-db-prd,arn:aws:rds:sa-east-1:295574221328:db:dimastec-db-prd,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-prd-2026-05-24-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-24-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-dtconnect-2026-05-28-05-24,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-dtconnect-2026-05-28-05-24,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+rds/dimastec-db-prd-2026-05-17-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-17-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-mydhas-2026-05-25-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-25-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-mydhas-2026-05-23-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-23-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-mydhas-2026-05-21-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-21-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-dtconnect-2026-05-21-05-24,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-dtconnect-2026-05-21-05-24,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+s3/bucket-295574221328-faceum-reports-api-codepipeline-sa-east-1,arn:aws:s3:::bucket-295574221328-faceum-reports-api-codepipeline-sa-east-1,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=bucket-295574221328-faceum-reports-api-codepipeline-sa-east-1
+s3/bucket-295574221328-faceum-cronjob-codepipeline-sa-east-1,arn:aws:s3:::bucket-295574221328-faceum-cronjob-codepipeline-sa-east-1,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=bucket-295574221328-faceum-cronjob-codepipeline-sa-east-1
+s3/bucket-295574221328-faceum-api-codepipeline-sa-east-1,arn:aws:s3:::bucket-295574221328-faceum-api-codepipeline-sa-east-1,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=bucket-295574221328-faceum-api-codepipeline-sa-east-1
+backup/3d380a37-7b63-42f9-b7cb-22791b284f4d,arn:aws:backup:sa-east-1:295574221328:recovery-point:3d380a37-7b63-42f9-b7cb-22791b284f4d,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/a7f91a8a-2cce-41ce-97c4-ecbbb0e72c47,arn:aws:backup:sa-east-1:295574221328:recovery-point:a7f91a8a-2cce-41ce-97c4-ecbbb0e72c47,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/d960b6e0-0337-4dfb-9946-d0aaaf811ca4,arn:aws:backup:sa-east-1:295574221328:recovery-point:d960b6e0-0337-4dfb-9946-d0aaaf811ca4,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+cloudwatch/Login_Failed,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:Login_Failed,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-web-AlarmHigh-e881dc96-4604-40d3-b467-b1bb87961809,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-web-AlarmHigh-e881dc96-4604-40d3-b467-b1bb87961809,,
+cloudwatch/TargetTracking-service/cl-mydhas-prod/svc-mydhas-api-service-AlarmHigh-80589e45-d0ce-4d34-bfb9-0a16b860b7d8,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-mydhas-prod/svc-mydhas-api-service-AlarmHigh-80589e45-d0ce-4d34-bfb9-0a16b860b7d8,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-authentication-api-AlarmHigh-8316ebba-ddc4-4e26-b1b1-a91f9fabc69d,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-authentication-api-AlarmHigh-8316ebba-ddc4-4e26-b1b1-a91f9fabc69d,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-reports-api-AlarmLow-3745f249-0ee0-4572-9ad3-77f26a2d2097,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-reports-api-AlarmLow-3745f249-0ee0-4572-9ad3-77f26a2d2097,,
+codebuild/project/cp-faceum-cronjob-codepipeline-prod,arn:aws:codebuild:sa-east-1:295574221328:project/cp-faceum-cronjob-codepipeline-prod,Faceum,environment=production; product=dtfaceum
+codebuild/project/cp-faceum-api-codepipeline-prod,arn:aws:codebuild:sa-east-1:295574221328:project/cp-faceum-api-codepipeline-prod,Faceum,environment=production; product=dtfaceum; CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=cp-faceum-api-codepipeline-prod
+codebuild/project/cp-faceum-authentication-api-codepipeline-prod,arn:aws:codebuild:sa-east-1:295574221328:project/cp-faceum-authentication-api-codepipeline-prod,Faceum,environment=production; product=dtfaceum; CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=cp-faceum-authentication-api-codepipeline-prod
+codepipeline/cp-faceum-cronjob-codepipeline-prod,arn:aws:codepipeline:sa-east-1:295574221328:cp-faceum-cronjob-codepipeline-prod,Faceum,environment=production; product=dtfaceum
+codepipeline/cp-faceum-backoffice-codepipeline,arn:aws:codepipeline:sa-east-1:295574221328:cp-faceum-backoffice-codepipeline,Faceum,environment=production; product=dtfaceum
+dynamodb/table/qa_log_actions_10096,arn:aws:dynamodb:sa-east-1:295574221328:table/qa_log_actions_10096,Faceum,DT FACEUM HML=DT FACEUM HML
+dynamodb/table/qa_log_actions_10248,arn:aws:dynamodb:sa-east-1:295574221328:table/qa_log_actions_10248,Faceum,DT FACEUM HML=DT FACEUM HML
+dynamodb/table/dev_log_actions_10255,arn:aws:dynamodb:sa-east-1:295574221328:table/dev_log_actions_10255,Faceum,DT FACEUM DEV=DT FACEUM DEV
+dynamodb/table/qa_log_actions_10061,arn:aws:dynamodb:sa-east-1:295574221328:table/qa_log_actions_10061,Faceum,DT FACEUM HML=DT FACEUM HML
+ec2/elastic-ip/eipalloc-0961b2d9e3bb24da1,arn:aws:ec2:sa-east-1:295574221328:elastic-ip/eipalloc-0961b2d9e3bb24da1,,Name=epi-monitoring
+ec2/elastic-ip/eipalloc-0019a917aa28e8983,arn:aws:ec2:sa-east-1:295574221328:elastic-ip/eipalloc-0019a917aa28e8983,AI,DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; Name=Dimastec-Airflow
+ec2/image/ami-0f34ac3aa0518a70a,arn:aws:ec2:sa-east-1:295574221328:image/ami-0f34ac3aa0518a70a,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:31DD2034-B61D-3E78-A1EC-CCC1F9210C1C; Name=DIMASTEC-NIFI
+ec2/image/ami-033fd4f7987536aed,arn:aws:ec2:sa-east-1:295574221328:image/ami-033fd4f7987536aed,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:D76094B0-0D05-5DC8-A24A-265AF94E8C3D; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-020ce37635d23a1d8,arn:aws:ec2:sa-east-1:295574221328:image/ami-020ce37635d23a1d8,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:A70C9507-0C0D-3A39-E949-38F3673584AE; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-07d3108104438d960,arn:aws:ec2:sa-east-1:295574221328:image/ami-07d3108104438d960,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:CF4EBBF5-EA53-BC49-5E89-5A7E255FD3EC; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-0825743f7fc58322c,arn:aws:ec2:sa-east-1:295574221328:image/ami-0825743f7fc58322c,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:15852F5D-BDAD-6AA3-F141-72B4D8D56813; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-0290ded66e48e7583,arn:aws:ec2:sa-east-1:295574221328:image/ami-0290ded66e48e7583,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:44140F98-64D0-7658-73C7-749B2B9F96B0; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-0cfbbeb4d3e5a3ec4,arn:aws:ec2:sa-east-1:295574221328:image/ami-0cfbbeb4d3e5a3ec4,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:BF8C115E-174E-CBF7-2B8C-79D4EF15D050; Name=DIMASTEC-AIRFLOW
+ec2/instance/i-000395576302614b4,arn:aws:ec2:sa-east-1:295574221328:instance/i-000395576302614b4,,backup=true; environment=production; Name=DIMASTEC-NIFI
+ec2/network-interface/eni-0e293022b7ea7de41,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-0e293022b7ea7de41,Mydhas,aws:ecs:serviceName=svc-mydhas-api-service; aws:ecs:clusterName=cl-mydhas-prod
+ec2/network-interface/eni-00c73f4d0f8380cdd,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-00c73f4d0f8380cdd,Faceum,aws:ecs:serviceName=svc-faceum-api; aws:ecs:clusterName=cl-dimastec-prod
+ec2/network-interface/eni-0a9353a0094c4b527,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-0a9353a0094c4b527,Faceum,aws:ecs:serviceName=svc-faceum-authentication-api; aws:ecs:clusterName=cl-dimastec-prod
+ec2/network-interface/eni-0c598b91d5bb093f7,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-0c598b91d5bb093f7,Faceum,aws:ecs:serviceName=svc-faceum-web; aws:ecs:clusterName=cl-dimastec-prod
+ec2/network-interface/eni-0a15fadb63898f535,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-0a15fadb63898f535,Mydhas,aws:ecs:serviceName=svc-mydhas-web-service; aws:ecs:clusterName=cl-mydhas-prod
+ec2/route-table/rtb-082c2ed0b562aad3d,arn:aws:ec2:sa-east-1:295574221328:route-table/rtb-082c2ed0b562aad3d,,Name=RTB-DIMASTEC-QA
+ec2/security-group/sg-0e843536635fe9018,arn:aws:ec2:sa-east-1:295574221328:security-group/sg-0e843536635fe9018,AI,SG-BRAIN_DIMASTEC_PUBLIC=SG-BRAIN_DIMASTEC_PUBLIC
+ec2/security-group/sg-0759c34a773f72baa,arn:aws:ec2:sa-east-1:295574221328:security-group/sg-0759c34a773f72baa,Faceum,Name=sg_aiflow_dtfaceum
+ec2/snapshot/snap-08cdf6f974d2e96fc,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-08cdf6f974d2e96fc,,aws:backup:source-resource=i-000395576302614b4:F96FAD87-23F6-B0F0-79AA-EEC76CF52B37
+ec2/snapshot/snap-0ba0787df8ca1dad1,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0ba0787df8ca1dad1,,aws:backup:source-resource=i-0eb1217327a4929fb:A2D2A197-6C8F-33CE-77D5-FC1319C6ADCD
+ec2/snapshot/snap-0a80db3350f90a679,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0a80db3350f90a679,,aws:backup:source-resource=i-0eb1217327a4929fb:44140F98-64D0-7658-73C7-749B2B9F96B0
+ec2/snapshot/snap-0fcaa24827d7ae2a2,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0fcaa24827d7ae2a2,,aws:backup:source-resource=i-0eb1217327a4929fb:AC5DDF6A-8B8C-0557-4A21-DF9180CE86A7
+ec2/snapshot/snap-02e9c9af09bf93a59,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-02e9c9af09bf93a59,,aws:backup:source-resource=i-000395576302614b4:1A8EF889-C0E3-B0A2-7E5D-0CDEDA5AF0F7
+ec2/snapshot/snap-073e83cefdbaa0b60,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-073e83cefdbaa0b60,,aws:backup:source-resource=i-000395576302614b4:06542BBC-E209-5C8B-54DA-5F93D923F5AC
+ec2/snapshot/snap-04061f64e94b170d6,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-04061f64e94b170d6,,aws:backup:source-resource=i-0eb1217327a4929fb:4D2DDDF3-2444-CA35-8C95-4093B2738C4B
+ec2/subnet/subnet-0da41a971750826b1,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0da41a971750826b1,,Name=SUBNET-DIMASTEC-PRD-PUBLIC-3
+ec2/subnet/subnet-0605b0f7a508c3343,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0605b0f7a508c3343,,Name=SUBNET-DIMASTEC-DEV-PRIVATE02
+ec2/subnet/subnet-0114e6dd190480950,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0114e6dd190480950,,Name=SUBNET-DIMASTEC-PRD-PUBLIC-1
+ec2/subnet/subnet-09b13d46b88750657,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-09b13d46b88750657,,Name=SUBNET-DIMASTEC-QA-PRIVATE01
+ec2/subnet/subnet-099106e36135a23b4,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-099106e36135a23b4,,Name=SUBNET-DIMASTEC-HML-PUBLIC02
+ec2/subnet/subnet-0ccd077576bc4b1b1,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0ccd077576bc4b1b1,,Name=SUBNET-DIMASTEC-PRD-PRIVATE-2
+ec2/subnet/subnet-0b5a9400bdd2454c2,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0b5a9400bdd2454c2,,Name=SUBNET-DIMASTEC-QA-PUBLIC02
+ecs/task/cl-dimastec-prod/c8712959847e4d67b3b12b10b84f46d8,arn:aws:ecs:sa-east-1:295574221328:task/cl-dimastec-prod/c8712959847e4d67b3b12b10b84f46d8,Faceum,aws:ecs:serviceName=svc-faceum-authentication-api; aws:ecs:clusterName=cl-dimastec-prod
+ecs/8,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:8,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/72,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:72,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/69,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:69,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/1,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-kong:1,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-kong
+ecs/35,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:35,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/23,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:23,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/67,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:67,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/3,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:3,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/3,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:3,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/24,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:24,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/20,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:20,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/10,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:10,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/18,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:18,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/21,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:21,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/8,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:8,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/13,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:13,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/20,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:20,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/17,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:17,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/5,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:5,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/11,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:11,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/11,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:11,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/62,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:62,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/44,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:44,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/22,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:22,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/7,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:7,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/4,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:4,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/32,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:32,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/32,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:32,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/22,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:22,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/13,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:13,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/20,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:20,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/33,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:33,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/27,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:27,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/8,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:8,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/5,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:5,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/57,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:57,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/13,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:13,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/43,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:43,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/2,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-kong:2,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-kong
+ecs/4,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:4,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/12,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:12,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/11,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:11,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/17,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:17,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/27,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:27,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/3,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:3,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/24,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:24,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/6,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:6,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/4,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-authentication-api:4,Faceum,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=tsk-faceum-authentication-api
+ecs/21,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:21,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/12,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:12,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/37,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:37,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/21,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:21,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/25,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:25,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/31,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:31,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/5,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:5,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/36,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:36,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/52,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:52,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/38,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:38,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+elasticache/automatic.redis-prd-mydhas-001-2026-05-25-03-04,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-mydhas-001-2026-05-25-03-04,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-prd-mydhas-001-2026-05-26-03-05,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-mydhas-001-2026-05-26-03-05,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-prd-mydhas-001-2026-05-23-03-05,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-mydhas-001-2026-05-23-03-05,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-prd-airflow-001-2026-05-23-03-04,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-airflow-001-2026-05-23-03-04,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticache/automatic.redis-prd-mydhas-001-2026-05-21-03-05,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-mydhas-001-2026-05-21-03-05,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-dtfaceum-prd-002-2026-05-22-04-00,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-dtfaceum-prd-002-2026-05-22-04-00,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/automatic.redis-prd-mydhas-001-2026-05-28-03-03,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-mydhas-001-2026-05-28-03-03,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-prd-airflow-001-2026-05-22-03-04,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-airflow-001-2026-05-22-03-04,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticache/automatic.redis-prd-airflow-001-2026-05-26-03-05,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-airflow-001-2026-05-26-03-05,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticache/automatic.redis-dtfaceum-prd-002-2026-05-26-04-00,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-dtfaceum-prd-002-2026-05-26-04-00,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticloadbalancing/listener/app/dimastec-prod-alb-prod/9b053918a1639877/435bd6901f200846,arn:aws:elasticloadbalancing:sa-east-1:295574221328:listener/app/dimastec-prod-alb-prod/9b053918a1639877/435bd6901f200846,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=lst-faceum-kong-HTTP-8001
+elasticloadbalancing/listener/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac/876b471faa29dde5,arn:aws:elasticloadbalancing:sa-east-1:295574221328:listener/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac/876b471faa29dde5,,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=lst-http-38000
+elasticloadbalancing/targetgroup/tg-faceum-kong-api-prod/8a47324186c43c0e,arn:aws:elasticloadbalancing:sa-east-1:295574221328:targetgroup/tg-faceum-kong-api-prod/8a47324186c43c0e,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tg-faceum-kong-api-prod
+events/rule/start_ec2_am,arn:aws:events:sa-east-1:295574221328:rule/start_ec2_am,,
+events/rule/stop_jenkins_ec2,arn:aws:events:sa-east-1:295574221328:rule/stop_jenkins_ec2,,
+events/rule/stop_ec2_i-072374ffe387c7452,arn:aws:events:sa-east-1:295574221328:rule/stop_ec2_i-072374ffe387c7452,,
+rds/dimastec-db-dev,arn:aws:rds:sa-east-1:295574221328:db:dimastec-db-dev,Faceum,owner=dtfaceum-team; environment=dev; product=dtfaceum; autostop=yes
+rds/dimastec-db-dtconnect,arn:aws:rds:sa-east-1:295574221328:db:dimastec-db-dtconnect,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+rds/dimastec-db-prd-2026-05-20-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-20-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-prd-2026-05-14-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-14-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-mydhas-2026-05-20-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-20-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-dtconnect-2026-05-25-05-24,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-dtconnect-2026-05-25-05-24,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+rds/dimastec-db-prd-2026-05-16-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-16-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-mydhas-2026-05-24-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-24-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-prd-preupgrade,arn:aws:rds:sa-east-1:295574221328:snapshot:dimastec-db-prd-preupgrade,,
+rds/dimastec-db-prd-2026-05-23-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-23-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-prd-2026-05-25-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-25-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-mydhas-2026-05-27-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-27-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+ssm/document/AWSQuickSetup-UpdateExistingInstanceProfile-lg5ie,arn:aws:ssm:sa-east-1:295574221328:document/AWSQuickSetup-UpdateExistingInstanceProfile-lg5ie,,QuickSetupType=Host Management; QuickSetupVersion=2.2; QuickSetupID=lg5ie
+backup/15ce2769-fe08-4952-9e79-790ae562b51c,arn:aws:backup:sa-east-1:295574221328:recovery-point:15ce2769-fe08-4952-9e79-790ae562b51c,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/b3d1ea93-563f-44ba-ad3c-ade92558a71d,arn:aws:backup:sa-east-1:295574221328:recovery-point:b3d1ea93-563f-44ba-ad3c-ade92558a71d,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/e17968d3-c87f-42c3-b06b-b1ddf8c342db,arn:aws:backup:sa-east-1:295574221328:recovery-point:e17968d3-c87f-42c3-b06b-b1ddf8c342db,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/e775e6c2-434a-4aeb-96f0-80f468b58b51,arn:aws:backup:sa-east-1:295574221328:recovery-point:e775e6c2-434a-4aeb-96f0-80f468b58b51,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/2c87fdc5-118a-4277-802e-f2493c3b98d8,arn:aws:backup:sa-east-1:295574221328:recovery-point:2c87fdc5-118a-4277-802e-f2493c3b98d8,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/849b90dd-6a6a-445a-a06e-d7c9bc86eb6b,arn:aws:backup:sa-east-1:295574221328:recovery-point:849b90dd-6a6a-445a-a06e-d7c9bc86eb6b,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/c8dac6c3-75b1-4430-b78c-5d8867929c61,arn:aws:backup:sa-east-1:295574221328:recovery-point:c8dac6c3-75b1-4430-b78c-5d8867929c61,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/8e3d754d-f5f8-4a7a-85f5-8899a907f30b,arn:aws:backup:sa-east-1:295574221328:recovery-point:8e3d754d-f5f8-4a7a-85f5-8899a907f30b,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+backup/6ca0aa2b-6f6a-4dd9-b8ce-4809afd93a7d,arn:aws:backup:sa-east-1:295574221328:recovery-point:6ca0aa2b-6f6a-4dd9-b8ce-4809afd93a7d,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=efs-faceum-grafana
+cloudformation/stack/StackSet-AWS-QuickSetup-SSMHostMgmt-LA-lg5ie-761df33b-62f7-466d-a97a-982865b03eb2/3fbc3000-a86e-11ed-9223-023dedc0d71c,arn:aws:cloudformation:sa-east-1:295574221328:stack/StackSet-AWS-QuickSetup-SSMHostMgmt-LA-lg5ie-761df33b-62f7-466d-a97a-982865b03eb2/3fbc3000-a86e-11ed-9223-023dedc0d71c,,QuickSetupType=Host Management; QuickSetupVersion=2.2; QuickSetupID=lg5ie
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-api-AlarmHigh-77f426a7-5d96-4ac2-a803-3e4339897500,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-api-AlarmHigh-77f426a7-5d96-4ac2-a803-3e4339897500,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-authentication-api-AlarmLow-34c39948-1b9e-425e-8be0-25323edaea9e,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-authentication-api-AlarmLow-34c39948-1b9e-425e-8be0-25323edaea9e,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-api-AlarmLow-182317cb-ceee-4eda-9745-c5b9b08c5a8b,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-api-AlarmLow-182317cb-ceee-4eda-9745-c5b9b08c5a8b,,
+cloudwatch/TargetTracking-service/cl-dimastec-prod/svc-faceum-web-AlarmLow-c5b21067-5ee5-40c7-89ca-488359e00ca8,arn:aws:cloudwatch:sa-east-1:295574221328:alarm:TargetTracking-service/cl-dimastec-prod/svc-faceum-web-AlarmLow-c5b21067-5ee5-40c7-89ca-488359e00ca8,,
+codebuild/project/web-faceum-prod,arn:aws:codebuild:sa-east-1:295574221328:project/web-faceum-prod,Faceum,environment=production; product=dtfaceum
+codebuild/project/cronjob-faceum-prod,arn:aws:codebuild:sa-east-1:295574221328:project/cronjob-faceum-prod,Faceum,environment=production; product=dtfaceum
+codepipeline/cp-faceum-authentication-api-codepipeline-prod,arn:aws:codepipeline:sa-east-1:295574221328:cp-faceum-authentication-api-codepipeline-prod,Faceum,environment=production; product=dtfaceum
+codepipeline/cp-faceum-web-codepipeline-prod,arn:aws:codepipeline:sa-east-1:295574221328:cp-faceum-web-codepipeline-prod,Faceum,environment=production; product=dtfaceum
+dynamodb/table/qa_log_actions_10057,arn:aws:dynamodb:sa-east-1:295574221328:table/qa_log_actions_10057,Faceum,DT FACEUM HML=DT FACEUM HML
+dynamodb/table/qa_log_actions_10003,arn:aws:dynamodb:sa-east-1:295574221328:table/qa_log_actions_10003,Faceum,DT FACEUM HML=DT FACEUM HML
+ec2/image/ami-0669b7ca8d88ac45c,arn:aws:ec2:sa-east-1:295574221328:image/ami-0669b7ca8d88ac45c,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:1A8EF889-C0E3-B0A2-7E5D-0CDEDA5AF0F7; Name=DIMASTEC-NIFI
+ec2/image/ami-0d5f01c7cd89ef6a7,arn:aws:ec2:sa-east-1:295574221328:image/ami-0d5f01c7cd89ef6a7,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:C3EE9691-9952-2C2E-704D-4EA44D8A29BC; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-0e81646fc69737c25,arn:aws:ec2:sa-east-1:295574221328:image/ami-0e81646fc69737c25,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:D6935BD7-6FF4-B7FC-F640-E6CBE3B1EF3E; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-080ab339335fb763b,arn:aws:ec2:sa-east-1:295574221328:image/ami-080ab339335fb763b,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:0244EBB7-3CCB-A542-4308-83F7D1A65AE7; Name=DIMASTEC-NIFI
+ec2/image/ami-094966606439bac56,arn:aws:ec2:sa-east-1:295574221328:image/ami-094966606439bac56,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:A2D2A197-6C8F-33CE-77D5-FC1319C6ADCD; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-0c28186391ff0fd3b,arn:aws:ec2:sa-east-1:295574221328:image/ami-0c28186391ff0fd3b,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:AD8C3EE1-2955-D903-1ADE-B0DA63BF1D40; Name=DIMASTEC-NIFI
+ec2/image/ami-035677fae88d36483,arn:aws:ec2:sa-east-1:295574221328:image/ami-035677fae88d36483,AI,backup=true; environment=production; aws:backup:source-resource=i-0eb1217327a4929fb:F2B6F00B-1CD1-EC25-6E76-EA831DDAB9E6; Name=DIMASTEC-AIRFLOW
+ec2/image/ami-04ef229e90dbc1aa5,arn:aws:ec2:sa-east-1:295574221328:image/ami-04ef229e90dbc1aa5,,backup=true; environment=production; aws:backup:source-resource=i-000395576302614b4:EB0BDABB-858E-34C5-5397-ED9BB66F9517; Name=DIMASTEC-NIFI
+ec2/instance/i-0eb1217327a4929fb,arn:aws:ec2:sa-east-1:295574221328:instance/i-0eb1217327a4929fb,AI,backup=true; environment=production; Name=DIMASTEC-AIRFLOW
+ec2/natgateway/nat-04bde3d3911974135,arn:aws:ec2:sa-east-1:295574221328:natgateway/nat-04bde3d3911974135,,Name=NATGW-DIMASTEC-PRD_01
+ec2/natgateway/nat-01300cf7298babd58,arn:aws:ec2:sa-east-1:295574221328:natgateway/nat-01300cf7298babd58,,Name=NATGW-DIMASTEC-PRD_02
+ec2/network-interface/eni-0b4a2147e18281793,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-0b4a2147e18281793,Faceum,aws:ecs:serviceName=svc-faceum-api; aws:ecs:clusterName=cl-dimastec-prod
+ec2/network-interface/eni-0be1f71020c2d5347,arn:aws:ec2:sa-east-1:295574221328:network-interface/eni-0be1f71020c2d5347,Faceum,aws:ecs:serviceName=svc-faceum-cronjob; aws:ecs:clusterName=cl-dimastec-prod
+ec2/route-table/rtb-095d8ff5a27bd669a,arn:aws:ec2:sa-east-1:295574221328:route-table/rtb-095d8ff5a27bd669a,,Name=RTB-DIMASTEC-HML
+ec2/route-table/rtb-04e87aaac64d63371,arn:aws:ec2:sa-east-1:295574221328:route-table/rtb-04e87aaac64d63371,,Name=RTB-DIMASTEC-PRD
+ec2/route-table/rtb-0585a7fbc1627ae8a,arn:aws:ec2:sa-east-1:295574221328:route-table/rtb-0585a7fbc1627ae8a,,Name=RTB-DIMASTEC-PRD-Private-1
+ec2/security-group/sg-0675575f55b0fb7a8,arn:aws:ec2:sa-east-1:295574221328:security-group/sg-0675575f55b0fb7a8,,Name=sg_dimastec_app_prd_default
+ec2/security-group/sg-0db035a29df408694,arn:aws:ec2:sa-east-1:295574221328:security-group/sg-0db035a29df408694,,Name=SG-jenkins-server
+ec2/security-group/sg-0d7213d0918aa4b77,arn:aws:ec2:sa-east-1:295574221328:security-group/sg-0d7213d0918aa4b77,Faceum,Name=sg_alb_dtfaceum_default
+ec2/security-group/sg-05107360b7d745030,arn:aws:ec2:sa-east-1:295574221328:security-group/sg-05107360b7d745030,,Name=epi-monitor
+ec2/snapshot/snap-03bcd24346754e5df,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-03bcd24346754e5df,,aws:backup:source-resource=i-000395576302614b4:0244EBB7-3CCB-A542-4308-83F7D1A65AE7
+ec2/snapshot/snap-0833c225ac2defb4d,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0833c225ac2defb4d,,aws:backup:source-resource=i-0eb1217327a4929fb:FE69F94E-26BA-D9C2-AC95-C1588612DD72
+ec2/snapshot/snap-03cc6ae7244ff00b3,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-03cc6ae7244ff00b3,,aws:backup:source-resource=i-0eb1217327a4929fb:471853EB-CFDE-FDA8-5CF1-F2ACE8B758B6
+ec2/snapshot/snap-04bc20280e4c8046c,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-04bc20280e4c8046c,,aws:backup:source-resource=i-0eb1217327a4929fb:BF8C115E-174E-CBF7-2B8C-79D4EF15D050
+ec2/snapshot/snap-0a55e0a0de5c056af,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0a55e0a0de5c056af,,aws:backup:source-resource=i-000395576302614b4:DA26D400-F588-7998-2E3B-FD826198FB9C
+ec2/snapshot/snap-05bf7cd2d7672a38a,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-05bf7cd2d7672a38a,,aws:backup:source-resource=i-0eb1217327a4929fb:15852F5D-BDAD-6AA3-F141-72B4D8D56813
+ec2/snapshot/snap-0c3dacfa1d57ded52,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-0c3dacfa1d57ded52,,aws:backup:source-resource=i-000395576302614b4:5227A991-B6CF-DFBE-BD90-2E4917AC0055
+ec2/snapshot/snap-07bd6dad73d8a7aa9,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-07bd6dad73d8a7aa9,,aws:backup:source-resource=i-000395576302614b4:EB0BDABB-858E-34C5-5397-ED9BB66F9517
+ec2/snapshot/snap-07e49dd2b1f441e30,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-07e49dd2b1f441e30,,aws:backup:source-resource=i-0eb1217327a4929fb:C3EE9691-9952-2C2E-704D-4EA44D8A29BC
+ec2/snapshot/snap-00ce881b0b2c3d075,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-00ce881b0b2c3d075,,aws:backup:source-resource=i-000395576302614b4:31DD2034-B61D-3E78-A1EC-CCC1F9210C1C
+ec2/snapshot/snap-01217f5f84191b0f2,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-01217f5f84191b0f2,,aws:backup:source-resource=i-0eb1217327a4929fb:3A053AA9-5D77-92DA-81F3-27BDBAC6258E
+ec2/snapshot/snap-02fb59f3345fb55b6,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-02fb59f3345fb55b6,,aws:backup:source-resource=i-0eb1217327a4929fb:F2B6F00B-1CD1-EC25-6E76-EA831DDAB9E6
+ec2/snapshot/snap-08558a17e87582ee1,arn:aws:ec2:sa-east-1:295574221328:snapshot/snap-08558a17e87582ee1,,aws:backup:source-resource=i-000395576302614b4:2FFC1628-9D2D-1515-6A01-8D4DDC0D471F
+ec2/subnet/subnet-0f7ede9111571a15b,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-0f7ede9111571a15b,,Name=SUBNET-DIMASTEC-PRD-PUBLIC-4
+ec2/subnet/subnet-00526dec1cf1d0e9a,arn:aws:ec2:sa-east-1:295574221328:subnet/subnet-00526dec1cf1d0e9a,,Name=SUBNET-DIMASTEC-DEV-PRIVATE01
+ec2/vpc/vpc-0d457f6e421de0b96,arn:aws:ec2:sa-east-1:295574221328:vpc/vpc-0d457f6e421de0b96,,Name=VPC-DIMASTEC-HML
+ec2/vpc-flow-log/fl-01582713ae85a640d,arn:aws:ec2:sa-east-1:295574221328:vpc-flow-log/fl-01582713ae85a640d,Faceum,Name=dtfaceum-prd-flowlogs
+ecs/service/cl-dimastec-prod/svc-faceum-api,arn:aws:ecs:sa-east-1:295574221328:service/cl-dimastec-prod/svc-faceum-api,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=svc-faceum-api
+ecs/task/cl-mydhas-prod/31d6db30065341ae9b8be6ae693a9c77,arn:aws:ecs:sa-east-1:295574221328:task/cl-mydhas-prod/31d6db30065341ae9b8be6ae693a9c77,Mydhas,aws:ecs:serviceName=svc-mydhas-api-service; aws:ecs:clusterName=cl-mydhas-prod
+ecs/task/cl-dimastec-prod/bfd27f96dbf14626bd778991d8627d4d,arn:aws:ecs:sa-east-1:295574221328:task/cl-dimastec-prod/bfd27f96dbf14626bd778991d8627d4d,Faceum,aws:ecs:serviceName=svc-faceum-api; aws:ecs:clusterName=cl-dimastec-prod
+ecs/9,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:9,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/26,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:26,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/37,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:37,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/1,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:1,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/23,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:23,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/32,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:32,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/26,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:26,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/41,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:41,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/1,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:1,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/9,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:9,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/7,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:7,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/66,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:66,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/40,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:40,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/45,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:45,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/6,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:6,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/12,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:12,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/42,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:42,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/31,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:31,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/16,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:16,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/39,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:39,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/13,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:13,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/48,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:48,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/15,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:15,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/2,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:2,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/12,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:12,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/34,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:34,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/18,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:18,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/44,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:44,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/3,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:3,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/17,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:17,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/30,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:30,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/68,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:68,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/3,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-grafana:3,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-grafana
+ecs/59,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:59,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/61,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:61,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/2,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:2,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+ecs/4,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:4,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/39,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:39,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/28,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:28,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/5,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:5,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/17,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:17,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/9,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:9,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/21,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:21,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/2,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-reports-api:2,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-reports-api
+ecs/16,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:16,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/27,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-web:27,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-web
+ecs/11,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-cronjob:11,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tsk-faceum-cronjob
+ecs/14,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-backoffice:14,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=tsk-faceum-backoffice
+ecs/58,arn:aws:ecs:sa-east-1:295574221328:task-definition/tsk-faceum-api:58,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tsk-faceum-api
+elasticache/redis-prd-mydhas-001,arn:aws:elasticache:sa-east-1:295574221328:cluster:redis-prd-mydhas-001,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/bckpredis-dtfaceum-hml,arn:aws:elasticache:sa-east-1:295574221328:snapshot:bckpredis-dtfaceum-hml,Faceum,DT FACEUM HML=DT FACEUM HML
+elasticache/backup-airflow-12-03-2025,arn:aws:elasticache:sa-east-1:295574221328:snapshot:backup-airflow-12-03-2025,AI,DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW
+elasticache/automatic.redis-dtfaceum-prd-002-2026-05-24-04-00,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-dtfaceum-prd-002-2026-05-24-04-00,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/automatic.redis-prd-airflow-001-2026-05-28-03-03,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-airflow-001-2026-05-28-03-03,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticache/automatic.redis-prd-mydhas-001-2026-05-27-03-04,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-mydhas-001-2026-05-27-03-04,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+elasticache/automatic.redis-prd-airflow-001-2026-05-21-03-04,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-airflow-001-2026-05-21-03-04,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticache/automatic.redis-dtfaceum-prd-002-2026-05-21-04-00,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-dtfaceum-prd-002-2026-05-21-04-00,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/automatic.redis-dtfaceum-prd-002-2026-05-28-04-00,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-dtfaceum-prd-002-2026-05-28-04-00,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/automatic.redis-dtfaceum-prd-002-2026-05-27-04-00,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-dtfaceum-prd-002-2026-05-27-04-00,Faceum,owner=dtfaceum-team; environment=production; product=dtfaceum
+elasticache/automatic.redis-prd-airflow-001-2026-05-24-03-04,arn:aws:elasticache:sa-east-1:295574221328:snapshot:automatic.redis-prd-airflow-001-2026-05-24-03-04,AI,owner=integracao-team; DIMASTEC-AIRFLOW=DIMASTEC-AIRFLOW; environment=production; product=integracao-dtfaceum
+elasticloadbalancing/listener/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac/c8150389ec6da4ba,arn:aws:elasticloadbalancing:sa-east-1:295574221328:listener/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac/c8150389ec6da4ba,,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=lst-HTTP-37000
+elasticloadbalancing/listener/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac/940173c36b3ee96f,arn:aws:elasticloadbalancing:sa-east-1:295574221328:listener/app/alb-internal-cl-dimastec-prod/d5094d77f021a5ac/940173c36b3ee96f,,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=lst-http-36000
+elasticloadbalancing/targetgroup/tg-faceum-web-prod/a311dde59c251e1e,arn:aws:elasticloadbalancing:sa-east-1:295574221328:targetgroup/tg-faceum-web-prod/a311dde59c251e1e,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=tg-faceum-web-prod
+elasticloadbalancing/targetgroup/tg-faceum-api-prod/c807f9ec41a4f6a8,arn:aws:elasticloadbalancing:sa-east-1:295574221328:targetgroup/tg-faceum-api-prod/c807f9ec41a4f6a8,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=tg-faceum-api-prod
+logs/cl-dimastec-prod-faceum-reports-api,arn:aws:logs:sa-east-1:295574221328:log-group:cl-dimastec-prod-faceum-reports-api,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=cl-dimastec-prod-faceum-reports-api
+logs/cl-dimastec-prod-faceum-web,arn:aws:logs:sa-east-1:295574221328:log-group:cl-dimastec-prod-faceum-web,Faceum,CreatedAt=2025-02-12; Cluster=cl-dimastec-prod; Name=cl-dimastec-prod-faceum-web
+logs/cl-dimastec-prod-faceum-backoffice,arn:aws:logs:sa-east-1:295574221328:log-group:cl-dimastec-prod-faceum-backoffice,Faceum,CreatedAt=2025-02-10; Cluster=cl-dimastec-prod; Name=cl-dimastec-prod-faceum-backoffice
+logs/cl-dimastec-prod-faceum-api,arn:aws:logs:sa-east-1:295574221328:log-group:cl-dimastec-prod-faceum-api,Faceum,CreatedAt=2025-02-11; Cluster=cl-dimastec-prod; Name=cl-dimastec-prod-faceum-api
+rds/dimastec-db-mydhas,arn:aws:rds:sa-east-1:295574221328:db:dimastec-db-mydhas,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-prd-2026-05-27-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-27-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-mydhas-preupgrade,arn:aws:rds:sa-east-1:295574221328:snapshot:dimastec-db-mydhas-preupgrade,,
+rds/dimastec-db-prd-2026-05-22-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-22-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-prd-2026-05-19-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-19-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-dtconnect-2026-05-24-05-24,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-dtconnect-2026-05-24-05-24,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+rds/dimastec-db-dtconnect-preupgrade,arn:aws:rds:sa-east-1:295574221328:snapshot:dimastec-db-dtconnect-preupgrade,,
+rds/dimastec-db-prd-2026-05-18-05-14,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-prd-2026-05-18-05-14,Faceum,environment=production; product=dtfaceum; production=dtfaceum-team
+rds/dimastec-db-mydhas-2026-05-26-03-48,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-mydhas-2026-05-26-03-48,Mydhas,owner=mydhas-team; environment=production; product=mydhas
+rds/dimastec-db-dtconnect-2026-05-23-05-24,arn:aws:rds:sa-east-1:295574221328:snapshot:rds:dimastec-db-dtconnect-2026-05-23-05-24,Faceum,owner=integracao-team; environment=production; product=integracao-dtfaceum
+s3/bucket-295574221328-authentication-api-codepipeline-sa-east-1,arn:aws:s3:::bucket-295574221328-authentication-api-codepipeline-sa-east-1,,CreatedAt=2025-04-29; Cluster=cl-dimastec-prod; Name=bucket-295574221328-authentication-api-codepipeline-sa-east-1
+s3/bucket-dtfaceum-artifactory,arn:aws:s3:::bucket-dtfaceum-artifactory,,S3 Artifactory=
+s3/mydhas-site-prod,arn:aws:s3:::mydhas-site-prod,Mydhas,mydhas-prd=mydhas-prd
