@@ -78,7 +78,6 @@ Os scripts continuam gerando CSV; o BigQuery é saída adicional, ativada com `-
 ```bash
 # AWS (CSV + BigQuery)
 python extractor.py --month 2026-05 --usd-brl-rate 5.04 \
-    --audit-sa tag_audit.csv --audit-ue tag_audit_useast.csv \
     --bq-project SEU_PROJECT_ID
 
 # Jira (CSV + BigQuery)

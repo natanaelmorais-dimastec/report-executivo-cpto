@@ -45,8 +45,7 @@ def aws_args(month: str, rate: str) -> list[str]:
         "--month", month,
         "--profile", "dimastec-mgmt",
         "--usd-brl-rate", rate,
-        "--audit-sa", "tag_audit.csv",
-        "--audit-ue", "tag_audit_useast.csv",
+        "--untagged-report", "untagged_by_service.csv",
         "--bq-project", BQ_PROJECT,
     ]
 

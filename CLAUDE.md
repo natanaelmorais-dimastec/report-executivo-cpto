@@ -113,7 +113,7 @@ gcloud config set project executive-reports-cpto
 
 ### Variáveis de ambiente (Jira) — use um .env (NÃO comitar)
 ```
-JIRA_BASE_URL=https://dimastec.atlassian.net
+JIRA_BASE_URL=https://dimastectecnologia.atlassian.net
 JIRA_EMAIL=voce@dimastec.com.br
 JIRA_API_TOKEN=...        # id.atlassian.com -> API tokens
 ```
@@ -122,7 +122,6 @@ JIRA_API_TOKEN=...        # id.atlassian.com -> API tokens
 ```bash
 cd get-aws-costs && python3 extractor.py --month 2026-05 --usd-brl-rate 5.04 \
     --profile dimastec-mgmt \
-    --audit-sa tag_audit.csv --audit-ue tag_audit_useast.csv \
     --bq-project executive-reports-cpto
 ```
 
@@ -230,9 +229,18 @@ substitui o "blend" que o Looker faria; usa SAFE_DIVIDE)
 por `updated`. NÃO voltar a usar `status changed to ("Done","Concluído")` — quebrou porque
 o status não se chama Done.
 
-**AWS → produto** (em extractor.py): cascata (1) tag `product`, (2) inferência por nome de
-recurso, (3) rateio por pesos do tag audit, (4) Compartilhado. Conta de produção =
-295574221328. Tags aplicadas valem de junho/2026 em diante (maio ficou só por ambiente).
+**AWS → produto** (em extractor.py): só DOIS passos — (1) tag `product` normalizada
+(minúsculas, sem acento, separadores → `-`; a chave de `Integração` é `integracao`),
+(2) sem tag utilizável → Compartilhado. **NÃO existe rateio estimado no extractor**: o
+rateio por contagem de recursos do tag audit foi removido em set/2026 (contagem de
+recursos não tem relação com custo, e a Tagging API não vê recursos sem tag). O custo
+sem tag fica em Compartilhado e a `vw_eficiencia` rateia — rateio em UM lugar só.
+Valor de tag desconhecido gera WARNING, não vira Compartilhado silencioso.
+Cada run emite `untagged_by_service.csv` classificando o custo sem tag em
+TAGGABLE / SHARED / UNCLASSIFIED, para priorizar o backlog de tagging.
+Contas: produção 295574221328, QA 058264268348. Cobertura da tag em ago/2026:
+~26% do custo AWS tem tag utilizável; ~79% do custo sem tag é TAGGABLE
+(ECS, ELB, RDS, CloudWatch) — tagueá-los tira ~R$ 38k/mês de Compartilhado.
 
 **Cloud provider:** ambiente "Azure" → Azure; "GCP" → GCP; resto → AWS.
 

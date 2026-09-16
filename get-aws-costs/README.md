@@ -6,18 +6,55 @@ Extrai o custo da AWS via Cost Explorer API e gera um CSV no formato da aba
 
 ## O que ele faz
 
-- Consulta a Cost Explorer API (`GetCostAndUsage`), agrupando por `LINKED_ACCOUNT` + tag `Produto`
-- Traduz a conta AWS no rótulo de ambiente (Produção / Staging / Dev-CI)
+- Consulta a Cost Explorer API (`GetCostAndUsage`), agrupando por `LINKED_ACCOUNT` + tag `product`
+- Traduz a conta AWS no rótulo de ambiente (Produção / QA)
 - Converte USD → BRL quando uma cotação é informada
 - Gera CSV pronto para colar na aba `custos_cloud` (que alimenta o Looker Studio)
-- Reporta a % de custo **sem tag**, para acompanhar o avanço do tagging
+- Emite um **diagnóstico do custo sem tag por serviço** (`untagged_by_service.csv`),
+  separando o que é taggável do que é compartilhado por natureza
+
+## Como o produto é atribuído
+
+Dois passos, de propósito:
+
+1. **Tag `product`** — o valor é normalizado (minúsculas, sem acento, separadores
+   colapsados em `-`) e procurado em `PRODUCT_TAG_MAP`. Então `Integração`,
+   `integracao` e `INTEGRACAO` caem todos em Integração. Valores que citam mais de
+   um produto (`mydhas/faceum`) vão para `Compartilhado`.
+2. **Sem tag utilizável → `Compartilhado`.**
+
+**Não existe split estimado do custo sem tag, por decisão.** Uma versão anterior
+rateava o custo sem tag pela **fração de recursos** por produto, tirada de um CSV de
+tag audit. Isso não se sustenta: contagem de recursos não tem relação com custo (um
+recovery point de backup e uma instância RDS contam igual), e a Resource Groups
+Tagging API só devolve recursos que **já têm tag** — ou seja, ela não consegue ver os
+recursos sem tag que geram o custo sem tag. O custo sem tag fica em `Compartilhado`,
+que a `relatorio_pt.vw_eficiencia` já rateia entre os produtos. **Rateio acontece em
+um lugar só.**
+
+Se aparecer um valor de tag novo que o mapa não conhece, o extractor emite um
+**WARNING** com o valor e sua forma normalizada, em vez de inflar `Compartilhado`
+silenciosamente.
+
+### Diagnóstico do custo sem tag
+
+Cada run consulta o custo sem tag `product` agrupado por serviço e classifica em:
+
+| Bucket | Significado |
+|---|---|
+| `TAGGABLE` | ECS, ELB, RDS, CloudWatch, WAF… pertence a um produto — aplicar a tag `product` tira esse custo de Compartilhado |
+| `SHARED` | Tax, Support, VPC/NAT, Route 53, CI/CD… sem dono por natureza |
+| `UNCLASSIFIED` | serviço fora das duas listas de hints — emite WARNING para você classificar |
+
+O detalhe vai para `untagged_by_service.csv`. Isso é **diagnóstico**, nunca é
+carregado no BigQuery — serve para priorizar o backlog de tagging.
 
 ## Pré-requisitos
 
 - Python 3.10+
 - `boto3` (`pip install -r requirements.txt`)
 - Credenciais AWS com permissão `ce:GetCostAndUsage`
-- A tag `Produto` ativada como **Cost Allocation Tag** (ver `TAGGING_STANDARD.md`)
+- A tag `product` ativada como **Cost Allocation Tag** (ver `TAGGING_STANDARD.md`)
 
 Rode preferencialmente a partir da **conta de gestão/pagadora** (consolidated billing)
 para enxergar todas as contas vinculadas em uma só chamada. Também funciona por conta.
@@ -40,11 +77,14 @@ ao rótulo de ambiente:
 
 ```python
 ACCOUNTS = {
-    "111111111111": "Produção",
-    "222222222222": "Staging",
-    "333333333333": "Dev-CI",
+    "295574221328": "Produção",
+    "058264268348": "QA",
 }
 ```
+
+E `PRODUCT_TAG_MAP` para traduzir valor de tag → produto do relatório. **As chaves
+precisam estar na forma normalizada**: minúsculas, sem acento, `_` / `.` / `/` /
+espaço trocados por `-`. Ou seja, a chave de `Integração` é `integracao`.
 
 ## Uso
 
@@ -53,20 +93,17 @@ Rode a partir da **raiz do repositório** (`report-executivo-cpto/`):
 ```bash
 # Comando completo (extração + carga no BigQuery)
 python3 get-aws-costs/extractor.py --month 2026-05 --usd-brl-rate 5.04 \
-    --audit-sa get-aws-costs/tag_audit.csv \
-    --audit-ue get-aws-costs/tag_audit_useast.csv \
     --bq-project executive-reports-cpto \
     --profile dimastec-mgmt
 
 # Apenas extração CSV (sem BigQuery)
 python3 get-aws-costs/extractor.py --month 2026-05 --usd-brl-rate 5.04 \
-    --audit-sa get-aws-costs/tag_audit.csv \
-    --audit-ue get-aws-costs/tag_audit_useast.csv \
     --profile dimastec-mgmt \
     --output custos_cloud_2026-05.csv
 
-# Mínimo (sem audit weights — todo custo untagged vai para 'Compartilhado')
-python3 get-aws-costs/extractor.py --month 2026-05 --profile dimastec-mgmt
+# Sem o diagnóstico de custo sem tag
+python3 get-aws-costs/extractor.py --month 2026-05 --profile dimastec-mgmt \
+    --untagged-report ""
 ```
 
 ### Parâmetros
@@ -76,8 +113,7 @@ python3 get-aws-costs/extractor.py --month 2026-05 --profile dimastec-mgmt
 | `--month` | ✅ | Mês no formato `YYYY-MM` |
 | `--profile` | ✅* | Profile nomeado da AWS CLI (`dimastec-mgmt`) |
 | `--usd-brl-rate` | — | Cotação USD→BRL (ex: `5.04`). Sem ela, o valor fica em USD |
-| `--audit-sa` | — | CSV do tag audit de sa-east-1 (Produção) |
-| `--audit-ue` | — | CSV do tag audit de us-east-1 (QA) |
+| `--untagged-report` | — | CSV do diagnóstico de custo sem tag (default: `untagged_by_service.csv`; `""` desliga) |
 | `--bq-project` | — | Project ID do GCP para carga no BigQuery |
 | `--bq-dataset` | — | Dataset do BigQuery (default: `relatorio_pt`) |
 | `--output` | — | Caminho do CSV de saída (default: `custos_cloud.csv`) |
@@ -122,3 +158,14 @@ aws-cost-extractor/
 ├── README.md
 └── TAGGING_STANDARD.md   # padrão da tag Produto + ativação no billing
 ```
+
+---
+
+## Histórico
+
+- **set/2026** — removido o rateio do custo sem tag por **contagem de recursos**
+  (flags `--audit-sa` / `--audit-ue`, ainda aceitas mas ignoradas com WARNING).
+  Motivo no bloco "Como o produto é atribuído". No mesmo passe, `PRODUCT_TAG_MAP`
+  passou a normalizar acento — a tag real na conta é `integração`, que antes não
+  casava com a chave `integracao` e mandava ~R$ 5,4k/mês para `Compartilhado` em
+  vez de `Integração`.

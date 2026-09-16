@@ -12,6 +12,7 @@ venv/
 # Output files (extractor results — re-runnable, contain internal financials)
 custos_*.csv
 tag_audit*.csv
+untagged_by_service*.csv
 entregas*.csv
 project_audit*.csv
 *.csv.bak
