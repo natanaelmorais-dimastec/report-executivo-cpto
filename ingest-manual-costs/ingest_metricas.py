@@ -10,9 +10,14 @@ YAML format (list of mappings):
     - produto: Faceum
       usuarios_ativos: 349772
       contratos_ativos: 816
+      usuarios_modulos: 969268     # optional: sum over licenses of users x billable modules
+      modulos_contratados: 1882    # optional: sum over licenses of billable modules
     - produto: Mydhas
       usuarios_ativos: 12345
       contratos_ativos: 67
+
+The two optional keys feed custo_por_usuario_modulo / custo_por_contrato_modulo in
+vw_eficiencia (cost per unit the customer actually pays for). Omitted -> NULL.
 
 If the file does not exist for a month, the script exits 0 (no-op) — useful when
 called from close_month.py so the close doesn't fail when the numbers aren't ready.
@@ -33,6 +38,7 @@ from pathlib import Path
 import yaml
 
 REQUIRED_KEYS = ("produto", "usuarios_ativos", "contratos_ativos")
+OPTIONAL_INT_KEYS = ("usuarios_modulos", "modulos_contratados")
 KNOWN_PRODUTOS = {"Faceum", "Mydhas", "AI", "Integração", "Compartilhado", "Saturno"}
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
@@ -66,7 +72,9 @@ def validate(entries: list[dict]) -> list[dict]:
         if produto not in KNOWN_PRODUTOS:
             log.warning("Entry #%d: unknown produto '%s' (known: %s)",
                         i, produto, ", ".join(sorted(KNOWN_PRODUTOS)))
-        for numeric in ("usuarios_ativos", "contratos_ativos"):
+        for numeric in ("usuarios_ativos", "contratos_ativos", *OPTIONAL_INT_KEYS):
+            if numeric not in entry or entry[numeric] is None:
+                continue
             v = entry[numeric]
             if not isinstance(v, int):
                 raise ValueError(
@@ -79,6 +87,7 @@ def validate(entries: list[dict]) -> list[dict]:
             "produto": produto,
             "usuarios_ativos": entry["usuarios_ativos"],
             "contratos_ativos": entry["contratos_ativos"],
+            **{k: entry.get(k) for k in OPTIONAL_INT_KEYS},
         })
     return rows
 
@@ -92,24 +101,34 @@ def upsert(project: str, dataset: str, competencia: str, rows: list[dict]) -> No
             USING (SELECT @comp AS competencia,
                           @prod AS produto,
                           @usu AS usuarios_ativos,
-                          @con AS contratos_ativos) S
+                          @con AS contratos_ativos,
+                          @usumod AS usuarios_modulos,
+                          @mods AS modulos_contratados) S
             ON T.competencia = S.competencia AND IFNULL(T.produto,'') = IFNULL(S.produto,'')
             WHEN MATCHED THEN UPDATE SET usuarios_ativos = S.usuarios_ativos,
                                          contratos_ativos = S.contratos_ativos,
+                                         usuarios_modulos = S.usuarios_modulos,
+                                         modulos_contratados = S.modulos_contratados,
                                          carregado_em = CURRENT_TIMESTAMP()
-            WHEN NOT MATCHED THEN INSERT (competencia, produto, usuarios_ativos, contratos_ativos, carregado_em)
-                                  VALUES (S.competencia, S.produto, S.usuarios_ativos, S.contratos_ativos, CURRENT_TIMESTAMP())
+            WHEN NOT MATCHED THEN INSERT (competencia, produto, usuarios_ativos, contratos_ativos,
+                                          usuarios_modulos, modulos_contratados, carregado_em)
+                                  VALUES (S.competencia, S.produto, S.usuarios_ativos, S.contratos_ativos,
+                                          S.usuarios_modulos, S.modulos_contratados, CURRENT_TIMESTAMP())
         """
         job_config = bigquery.QueryJobConfig(query_parameters=[
             bigquery.ScalarQueryParameter("comp", "STRING", competencia),
             bigquery.ScalarQueryParameter("prod", "STRING", row["produto"]),
             bigquery.ScalarQueryParameter("usu", "INT64", row["usuarios_ativos"]),
             bigquery.ScalarQueryParameter("con", "INT64", row["contratos_ativos"]),
+            bigquery.ScalarQueryParameter("usumod", "INT64", row["usuarios_modulos"]),
+            bigquery.ScalarQueryParameter("mods", "INT64", row["modulos_contratados"]),
         ])
         c.query(sql, job_config=job_config).result()
-        log.info("Upserted metricas_negocio %s/%s: usuarios=%d, contratos=%d",
+        log.info("Upserted metricas_negocio %s/%s: usuarios=%d, contratos=%d, "
+                 "usuarios_modulos=%s, modulos_contratados=%s",
                  competencia, row["produto"],
-                 row["usuarios_ativos"], row["contratos_ativos"])
+                 row["usuarios_ativos"], row["contratos_ativos"],
+                 row["usuarios_modulos"], row["modulos_contratados"])
 
 
 def main() -> int:

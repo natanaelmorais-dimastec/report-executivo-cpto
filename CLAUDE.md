@@ -209,10 +209,11 @@ Estas regras valem para qualquer código gerado ou alterado aqui:
 - `status` virou "N issues entregues" (não binário Entregue/Em progresso)
 
 **Tabela `metricas_negocio`** (entrada manual ou API futura)
-`competencia, usuarios_ativos, contratos_ativos, carregado_em`
+`competencia, produto, usuarios_ativos, contratos_ativos, usuarios_modulos, modulos_contratados, carregado_em`
+- `usuarios_modulos` / `modulos_contratados` (opcionais): Σ por licença de ativos × módulos cobrados e Σ módulos cobrados, só clientes reais. Fonte Faceum: `client-ops/count-colaborador/relatorios-licencas-<mês>/_indice.csv`.
 
 **View `vw_custo_mensal`** — custo total por mês (SUM agrupado)
-**View `vw_eficiencia`** — KPIs custo_por_usuario, custo_por_contrato (JOIN custo×negócio;
+**View `vw_eficiencia`** — KPIs custo_por_usuario, custo_por_contrato, custo_por_usuario_modulo, custo_por_contrato_modulo (JOIN custo×negócio;
 substitui o "blend" que o Looker faria; usa SAFE_DIVIDE)
 
 ---

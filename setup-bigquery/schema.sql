@@ -78,9 +78,16 @@ CREATE TABLE IF NOT EXISTS `relatorio_pt.metricas_negocio` (
   produto          STRING,           -- Faceum, Mydhas, AI (NULL = total/legado)
   usuarios_ativos  INT64,
   contratos_ativos INT64,
+  usuarios_modulos INT64,            -- Σ por licença de (usuários × módulos COBRADOS); só clientes reais
+  modulos_contratados INT64,         -- Σ por licença de módulos COBRADOS; só clientes reais
   carregado_em     TIMESTAMP DEFAULT CURRENT_TIMESTAMP()
 )
 OPTIONS (description = 'Usuários e contratos ativos por (mês × produto), para KPIs de eficiência por produto');
+
+-- Migração para tabelas criadas antes das colunas de módulo (idempotente):
+ALTER TABLE `relatorio_pt.metricas_negocio`
+  ADD COLUMN IF NOT EXISTS usuarios_modulos INT64,
+  ADD COLUMN IF NOT EXISTS modulos_contratados INT64;
 
 -- ----------------------------------------------------------------------------
 -- 5. VIEW de custo total por mês (o Looker usa para cruzar com métricas)
@@ -131,6 +138,12 @@ LEFT JOIN `relatorio_pt.cotacoes` cot
 --        custo_produto_brl = custo_direto + share_proporcional_do_compartilhado
 --      Mantemos as duas parcelas como colunas separadas para transparência.
 --      AI/Saturno NÃO absorvem (não têm usuários/contratos no report).
+--
+--    KPIs por MÓDULO (custo_por_usuario_modulo, custo_por_contrato_modulo):
+--      um cliente com N módulos cobrados paga N módulos para as mesmas pessoas,
+--      então a unidade vendida é o módulo. Denominadores = usuarios_modulos e
+--      modulos_contratados de metricas_negocio (NULL quando não informados).
+--      Ficam AO LADO dos KPIs por usuário/contrato, não os substituem.
 -- ----------------------------------------------------------------------------
 CREATE OR REPLACE VIEW `relatorio_pt.vw_eficiencia` AS
 WITH custo_direto AS (
@@ -183,7 +196,19 @@ SELECT
       * SAFE_DIVIDE(d.custo_direto_brl, b.custo_direto_absorventes_brl),
     m.contratos_ativos
   ) AS custo_por_contrato,
-  SAFE_DIVIDE(m.usuarios_ativos, m.contratos_ativos) AS usuarios_por_contrato
+  SAFE_DIVIDE(m.usuarios_ativos, m.contratos_ativos) AS usuarios_por_contrato,
+  m.usuarios_modulos,
+  m.modulos_contratados,
+  SAFE_DIVIDE(
+    d.custo_direto_brl + COALESCE(s.custo_compartilhado_brl, 0)
+      * SAFE_DIVIDE(d.custo_direto_brl, b.custo_direto_absorventes_brl),
+    m.usuarios_modulos
+  ) AS custo_por_usuario_modulo,
+  SAFE_DIVIDE(
+    d.custo_direto_brl + COALESCE(s.custo_compartilhado_brl, 0)
+      * SAFE_DIVIDE(d.custo_direto_brl, b.custo_direto_absorventes_brl),
+    m.modulos_contratados
+  ) AS custo_por_contrato_modulo
 FROM custo_direto d
 INNER JOIN `relatorio_pt.metricas_negocio` m
   ON d.competencia = m.competencia AND d.produto = m.produto

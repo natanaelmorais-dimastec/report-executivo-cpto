@@ -13,6 +13,9 @@
 - produto: Faceum
   usuarios_ativos: 0     # FILL IN
   contratos_ativos: 0    # FILL IN
+  # OPCIONAIS — KPIs por módulo (vw_eficiencia). Só clientes reais, só módulos cobrados.
+  # usuarios_modulos: 0      # Σ por licença de (ativos × módulos cobrados)
+  # modulos_contratados: 0   # Σ por licença de módulos cobrados
 
 - produto: Mydhas
   usuarios_ativos: 0     # FILL IN
